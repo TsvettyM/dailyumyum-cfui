@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#__next,
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1040px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}

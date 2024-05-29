@@ -12,8 +12,8 @@ const CommonHeader = () => {
       <div className="container flex items-center justify-center py-4">
         <IconLogo className="mr-auto md:mr-8 h-11 w-[200px]" />
 
-        <button>
-          <IconMobileMenu className="ml-auto md:hidden" />
+        <button type="button" className="ml-auto md:hidden">
+          <IconMobileMenu className="w-6 h-4" />
         </button>
 
         <nav className="hidden gap-8 font-medium mr-auto md:flex">

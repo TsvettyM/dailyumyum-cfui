@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <>
       <Head>
-        <title>Dailyumyum | Home</title>
+        <title>Homepage</title>
       </Head>
 
       <HomepageView />

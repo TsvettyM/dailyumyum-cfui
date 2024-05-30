@@ -1,23 +1,14 @@
 import IIcon from "../interfaces/icon.interface";
 
-const IconAbout = ({ className }: IIcon) => {
+const IconBGAbout = ({ className }: IIcon) => {
   return (
     <svg
       className={className}
       viewBox="0 0 587 504"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
     >
-      <g filter="url(#filter0_f_58_415)">
-        <ellipse
-          cx="293.5"
-          cy="252"
-          rx="157.5"
-          ry="116"
-          fill="black"
-          fill-opacity="0.31"
-        />
-      </g>
       <path
         d="M398.001 383.501C398.001 383.501 452.851 388.403 486.001 354.5C530.001 309.5 518.501 299.667 486.001 253.5C453.501 207.333 517.686 164.337 481.5 105.5C443.14 43.129 398.414 28.7292 325.5 22.0001C246.567 14.7153 201.266 14.0643 154.5 51.0013C102.704 91.9122 81.5223 102.841 115.5 156C146.5 204.5 -17.5002 291.5 94 366.5C119.359 383.558 172.501 383.501 172.501 383.501"
         stroke="#356959"
@@ -58,31 +49,8 @@ const IconAbout = ({ className }: IIcon) => {
         d="M490.819 309.61C492.119 311.793 486.001 314 486.001 314C486.001 314 485.901 307.664 488.41 308.014C489.529 308.17 490.243 308.643 490.819 309.61Z"
         fill="#5B5150"
       />
-      <defs>
-        <filter
-          id="filter0_f_58_415"
-          x="0.300003"
-          y="0.300003"
-          width="586.4"
-          height="503.4"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="67.85"
-            result="effect1_foregroundBlur_58_415"
-          />
-        </filter>
-      </defs>
     </svg>
   );
 };
 
-export default IconAbout;
+export default IconBGAbout;

@@ -1,4 +1,3 @@
-import HomepageAbout from "@/features/homepage/components/HomepageAbout";
 import HomepageView from "@/features/homepage/components/HomepageView";
 import Head from "next/head";
 
@@ -10,7 +9,6 @@ const Homepage = () => {
       </Head>
 
       <HomepageView />
-      <HomepageAbout />
     </>
   );
 };

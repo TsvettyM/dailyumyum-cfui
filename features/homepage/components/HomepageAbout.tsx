@@ -1,20 +1,20 @@
 import CommonButton from "@/features/common/components/CommonButton";
-import IconAbout from "@/features/icons/components/IconAbout";
+import IconBGAbout from "@/features/icons/components/IconBGAbout";
 import Image from "next/image";
 
 const HomepageAbout = () => {
   return (
-    <section className="homepage__about flex overflow-hidden py-10 md:py-20 px-0 md:px-20">
+    <section className="homepage__section--about flex overflow-hidden py-10 md:py-20 px-0 md:px-20">
       <div className="container flex flex-col-reverse md:flex-row justify-center items-center relative">
         <div className="left flex flex-col justify-center items-center relative mr-0 md:mr-10 xl:mr-auto mt-20 md:mt-0">
-          <IconAbout className="absolute w-[470px] md:w-[500px] lg:w-[587px]" />
+          <IconBGAbout className="absolute w-[520px] h-[440px] md:h-[480px] md:w-[570px] lg:h-[500px] lg:w-[580px] -left-[155px] md:-left-[165px] lg:-left-[150px] -top-[60px] md:-top-[60px] lg:-top-14" />
 
           <div className="flex flex-col justify-center items-center relative">
             <p className="text-28 text-green text-center font-bold mb-5">
               Chipi Chipi
             </p>
 
-            <div className="relative  h-[130px] sm:h-[151px] md:h-[180px] lg:h-[200px] w-[160px] sm:w-[180px] md:w-[210px] lg:w-[240px] mb-11">
+            <div className="relative h-[150px] md:h-[180px] lg:h-[200px] w-[180px] md:w-[210px] lg:w-[240px] mb-11">
               <Image
                 src="/images/about-img.png"
                 alt=""
@@ -28,7 +28,7 @@ const HomepageAbout = () => {
               href="/"
               style="border"
               title="Get this recipe"
-              className="relative w-[160px] md:w-[180px] lg:w-[193px] -left-4 md:-left-5 bottom-2.5 sm:bottom-6 md:bottom-8 lg:bottom-5"
+              className="w-[160px] md:w-[180px] lg:w-[193px]"
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HomepageView = () => {
   return (
-    <section className="homepage__view overflow-hidden py-20">
+    <section className="homepage__view overflow-hidden py-3 md:py-20">
       <div className="container relative flex flex-col items-center justify-center md:flex-row">
         <div className="left__side flex flex-col justify-center md:justify-start items-center md:items-start md:mr-auto">
           <h1 className="text-48 font-bold text-black lg:text-64">
@@ -31,7 +31,7 @@ const HomepageView = () => {
           />
         </div>
 
-        <div className="right__side relative mt-20 mr-0 lg:mr-20 flex flex-col items-center justify-center md:mt-0">
+        <div className="right__side relative mt-4 mr-0 lg:mr-20 flex flex-col items-center justify-center md:mt-0">
           <IconIntro className="absolute -right-16.5 sm:-right-20 top-2 w-[400px] md:w-[450px] lg:w-[488px]" />
 
           <p className="text-center text-28 font-bold text-green mb-0 mt-14">

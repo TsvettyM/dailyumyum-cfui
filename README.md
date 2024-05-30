@@ -37,6 +37,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Dailyumyum-CFUI
 
+### Version 0.0.5
+
+- Created footer
+
 ### Version 0.0.4
 
 - Created homepage about section

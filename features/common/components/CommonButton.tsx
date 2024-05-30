@@ -29,7 +29,7 @@ const CommonButton = (props: IProps) => {
       <Link
         href={href}
         className={classNames(
-          "common__button flex items-center justify-center w-full max-w-[203px] h-9 rounded-full text-center font-bold",
+          "common__button flex items-center justify-center w-full h-9 rounded-full text-center font-bold",
           {
             [getStyle()]: getStyle,
             [className || ""]: className,
@@ -46,7 +46,7 @@ const CommonButton = (props: IProps) => {
       type={type}
       onClick={onClick}
       className={classNames(
-        "common__button flex items-center justify-center w-full max-w-[203px] h-9 rounded-full text-center font-bold",
+        "common__button flex items-center justify-center w-full h-9 rounded-full text-center font-bold",
         {
           [getStyle()]: getStyle,
           [className || ""]: className,

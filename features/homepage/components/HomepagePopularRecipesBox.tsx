@@ -6,36 +6,19 @@ import IconShare from "@/features/icons/components/IconShare";
 import IconTime from "@/features/icons/components/IconTime";
 import IconYums from "@/features/icons/components/IconYums";
 import Image from "next/image";
+import IRecipe from "../interfaces/recipe.interface";
 
 interface IProps {
-  title: string;
-  description: string;
-  time: number;
-  rating: number;
-  meals: number;
-  yums: number;
-  isLiked?: boolean;
-  image: string;
-  share: string;
+  recipe: IRecipe;
 }
 
-const HomepagePopularRecipesBox = ({
-  title,
-  description,
-  time,
-  rating,
-  meals,
-  yums,
-  isLiked,
-  image,
-  share,
-}: IProps) => {
+const HomepagePopularRecipesBox = ({ recipe }: IProps) => {
   return (
     <div className="recipes__box relative flex flex-col items-center justify-center rounded-10 px-6 text-center shadow-bottom">
       <IconLine className="absolute -left-0.5 -top-0.5" />
       <IconLine className="absolute -bottom-0.5 -right-0.5 rotate-180" />
       <div className="relative -top-7 -mb-5 h-[167px] w-[207px]">
-        <Image src={image} alt="" fill />
+        <Image src={recipe.image} alt="" fill draggable={false} />
       </div>
       <div className="relative bottom-32 flex gap-64">
         <button type="button">
@@ -45,27 +28,27 @@ const HomepagePopularRecipesBox = ({
           <IconShare />
         </button>
       </div>
-      <h4 className="flex text-32 font-bold text-black">{title}</h4>
+      <h4 className="flex text-32 font-bold text-black">{recipe.title}</h4>
       <p className="mt-5 flex max-w-[290px] font-medium text-black">
-        {description}
+        {recipe.description}
       </p>
       <hr className="mt-10 w-full rounded-10 text-[#AFACAC]" />
       <div className="my-5 flex items-center justify-center gap-9">
         <p className="flex flex-col items-center justify-center">
           <IconTime />
-          {time} min
+          {recipe.time} min
         </p>
         <p className="flex flex-col items-center justify-center">
           <IconRating />
-          {rating}
+          {recipe.rating}
         </p>
         <p className="flex flex-col items-center justify-center">
           <IconMeals />
-          {meals} meals
+          {recipe.meals} meals
         </p>
         <p className="flex flex-col items-center justify-center">
           <IconYums />
-          {yums}
+          {recipe.yums}
         </p>
       </div>
     </div>

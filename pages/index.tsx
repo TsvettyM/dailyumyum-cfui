@@ -1,4 +1,3 @@
-import HomepagePopularRecipes from "@/features/homepage/components/HomepagePopularRecipes";
 import HomepageView from "@/features/homepage/components/HomepageView";
 import Head from "next/head";
 
@@ -10,7 +9,6 @@ const Homepage = () => {
       </Head>
 
       <HomepageView />
-      <HomepagePopularRecipes />
     </>
   );
 };

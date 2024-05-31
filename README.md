@@ -37,6 +37,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Dailyumyum-CFUI
 
+### Version 0.0.6
+
+- Initial broken recipe carousel
+
 ### Version 0.0.5
 
 - Created footer

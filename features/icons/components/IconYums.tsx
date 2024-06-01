@@ -1,8 +1,9 @@
-const IconYums = () => {
+import IIcon from "../interfaces/icon.interface";
+
+const IconYums = ({ className }: IIcon) => {
   return (
     <svg
-      width="47"
-      height="19"
+      className={className}
       viewBox="0 0 47 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

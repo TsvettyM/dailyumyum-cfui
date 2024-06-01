@@ -56,7 +56,7 @@ const CommonFooter = () => {
 
             <div className="links flex flex-wrap md:flex-col justify-center md:justify-start items-center md:items-start gap-4 text-16 text-white font-medium">
               <Link href="/">Home</Link>
-              <Link href="/">Recipes</Link>
+              <Link href="/recipes">Recipes</Link>
               <Link href="/">About Us</Link>
               <Link href="/"> Term & Conditions</Link>
               <Link href="/"> Privacy Policy</Link>

@@ -1,6 +1,9 @@
-const IconRating = () => {
+import IIcon from "../interfaces/icon.interface";
+
+const IconRating = ({ className }: IIcon) => {
   return (
     <svg
+      className={className}
       width="16"
       height="16"
       viewBox="0 0 16 16"

@@ -6,6 +6,7 @@ import IconYums from "@/features/icons/components/IconYums";
 import Image from "next/image";
 import IRecipe from "../../homepage/interfaces/recipe.interface";
 import classNames from "classnames";
+import Link from "next/link";
 
 interface IProps {
   recipe: IRecipe;
@@ -14,7 +15,8 @@ interface IProps {
 
 const CommonCard = ({ recipe, size }: IProps) => {
   return (
-    <div
+    <Link
+      href="/"
       className={classNames(
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom",
         {
@@ -128,7 +130,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
           {recipe.rating}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

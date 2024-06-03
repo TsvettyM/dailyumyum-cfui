@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import CommonButton from "./CommonButton";
 import IconMobileMenu from "@/features/icons/components/IconMobileMenu";
+import CommonDropdownButton from "./CommonDropDownButton";
+import classNames from "classnames";
 
 const CommonHeader = () => {
   const router = useRouter();
@@ -11,10 +13,6 @@ const CommonHeader = () => {
     <header>
       <div className="container flex items-center justify-center py-4">
         <IconLogo className="mr-auto md:mr-8 h-11 w-[200px]" />
-
-        <button type="button" className="ml-auto md:hidden">
-          <IconMobileMenu className="w-6 h-4" />
-        </button>
 
         <nav className="hidden gap-8 font-medium mr-auto md:flex">
           <Link
@@ -58,6 +56,30 @@ const CommonHeader = () => {
           style="green"
           className="hidden w-[115px] h-8"
         />
+
+        {router.pathname === "/recipes" ? (
+          <CommonDropdownButton
+            className="ml-auto mr-5"
+            title={
+              <p className="flex">
+                All
+                <span className="flex items-center text-gray-500 ml-1">
+                  (5)
+                </span>
+              </p>
+            }
+            items={["All", "Asian", "Mexican"]}
+          />
+        ) : null}
+
+        <button
+          type="button"
+          className={classNames("md:hidden", {
+            "ml-auto": router.pathname !== "/recipes",
+          })}
+        >
+          <IconMobileMenu className="w-6 h-4" />
+        </button>
       </div>
     </header>
   );

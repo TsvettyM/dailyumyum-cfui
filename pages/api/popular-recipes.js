@@ -16,6 +16,30 @@ export default function handler(req, res) {
       isLiked: true,
       share: "share",
       image: "/images/intro-img.png",
+      title: "Tteokbokki",
+      description:
+        "Tteokbokki is one of the most popular Korean street foods in Korea.",
+      time: 20,
+      rating: 4.5,
+      meals: 4,
+      yums: 550,
+    },
+    {
+      isLiked: true,
+      share: "share",
+      image: "/images/intro-img.png",
+      title: "Tteokbokki",
+      description:
+        "Tteokbokki is one of the most popular Korean street foods in Korea.",
+      time: 20,
+      rating: 4.5,
+      meals: 4,
+      yums: 550,
+    },
+    {
+      isLiked: true,
+      share: "share",
+      image: "/images/intro-img.png",
       title: "Bibimbap",
       description:
         "Bibimbap is a traditional Korean rice dish with mixed vegetables and beef.",

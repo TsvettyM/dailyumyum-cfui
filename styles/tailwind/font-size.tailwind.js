@@ -1,4 +1,5 @@
 module.exports = {
+  12: "0.750rem",
   13: "0.8125rem",
   14: "0.875rem",
   16: "1rem",

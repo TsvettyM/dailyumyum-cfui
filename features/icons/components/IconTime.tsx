@@ -1,8 +1,9 @@
-const IconTime = () => {
+import IIcon from "../interfaces/icon.interface";
+
+const IconTime = ({ className }: IIcon) => {
   return (
     <svg
-      width="17"
-      height="16"
+      className={className}
       viewBox="0 0 17 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

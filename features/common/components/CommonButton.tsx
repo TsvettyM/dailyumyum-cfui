@@ -1,11 +1,12 @@
 import classNames from "classnames";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface IProps {
-  title: string;
+  title: string | ReactNode;
   type?: "button" | "reset" | "submit";
   href?: string;
-  style?: "border" | "green";
+  style?: "border" | "green" | "black";
   className?: string;
   onClick?: () => void;
 }
@@ -19,6 +20,8 @@ const CommonButton = (props: IProps) => {
         return "text-green font-bold border border-green";
       case "green":
         return "text-white bg-green";
+      case "black":
+        return "text-black font-medium border border-black";
       default:
         return "";
     }

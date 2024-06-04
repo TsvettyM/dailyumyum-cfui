@@ -1,10 +1,10 @@
 import IconArrow from "@/features/icons/components/IconArrow";
-import HomepagePopularRecipesBox from "./HomepagePopularRecipesBox";
 import Link from "next/link";
 import CommonCarousel from "@/features/common/components/carousel/CommonCarousel";
 import IRecipe from "../interfaces/recipe.interface";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CommonCard from "../../common/components/CommonCard";
 
 const HomepagePopularRecipes = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -31,7 +31,7 @@ const HomepagePopularRecipes = () => {
       <div className="recipes__list mt-20 w-full max-w-[1200px] mx-auto px-5">
         <CommonCarousel itemsToShow={3} hasDots hasButtons>
           {recipes.map((recipe, index) => (
-            <HomepagePopularRecipesBox key={index} recipe={recipe} />
+            <CommonCard size="big" key={index} recipe={recipe} />
           ))}
         </CommonCarousel>
       </div>

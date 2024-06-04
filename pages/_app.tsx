@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={nunito.className}>
       <CommonHeader />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <CommonFooter />
     </main>
   );

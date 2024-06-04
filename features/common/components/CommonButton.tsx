@@ -57,7 +57,6 @@ const CommonButton = (props: IProps) => {
       )}
     >
       {title}
-      {style}
     </button>
   );
 };

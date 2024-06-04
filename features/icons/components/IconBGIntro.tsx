@@ -17,7 +17,7 @@ const IconIntro = ({ className }: IIcon) => {
         stroke="#356959"
         stroke-width="2"
         stroke-linecap="round"
-        stroke-dasharray="21 21"
+        strokeDasharray="21 21"
       />
       <circle cx="397.5" cy="117.5" r="4.5" fill="#1EBBDE" />
       <rect x="374" y="309.45" width="17" height="17" rx="4" fill="#FF9900" />

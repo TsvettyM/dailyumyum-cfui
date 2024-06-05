@@ -16,7 +16,7 @@ interface IProps {
 const CommonCard = ({ recipe, size }: IProps) => {
   return (
     <Link
-      href="/"
+      href={`/recipe/${recipe.title}`}
       className={classNames(
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom",
         {

@@ -18,7 +18,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
     <Link
       href={`/recipe/${recipe.title}`}
       className={classNames(
-        "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom",
+        "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom duration-200 hover:-translate-y-2",
         {
           "px-6": size === "big",
           "px-3": size === "small",

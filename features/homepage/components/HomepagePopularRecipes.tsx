@@ -11,7 +11,7 @@ const HomepagePopularRecipes = () => {
 
   useEffect(() => {
     axios
-      .get("https://dailyumyum.vercel.app//api/popular-recipes")
+      .get("https://dailyumyum.vercel.app/api/popular-recipes")
       .then((res) => setRecipes(res.data));
   }, []);
 
@@ -22,7 +22,10 @@ const HomepagePopularRecipes = () => {
           OUR MOST POPULAR RECIPES
         </h1>
 
-        <Link href="/" className="flex items-center font-medium text-[#AFACAC]">
+        <Link
+          href="/recipes"
+          className="flex items-center font-medium text-[#AFACAC]"
+        >
           View All
           <IconArrow className="ml-2" />
         </Link>

@@ -11,7 +11,7 @@ const HomepagePopularRecipes = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/popular-recipes")
+      .get("https://dailyumyum.vercel.app//api/popular-recipes")
       .then((res) => setRecipes(res.data));
   }, []);
 

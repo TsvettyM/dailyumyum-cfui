@@ -31,12 +31,10 @@ const HomepagePopularRecipes = () => {
         </Link>
       </div>
 
-      <div className="recipes__list mt-20 w-full max-w-[1200px] mx-auto px-5">
-        <CommonCarousel itemsToShow={3} hasDots hasButtons>
-          {recipes.map((recipe, index) => (
-            <CommonCard size="big" key={index} recipe={recipe} />
-          ))}
-        </CommonCarousel>
+      <div className="recipes__list mt-20 w-full max-w-[1200px] mx-auto px-5 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {recipes.slice(0, 3).map((recipe, index) => (
+          <CommonCard size="big" key={index} recipe={recipe} />
+        ))}
       </div>
     </div>
   );

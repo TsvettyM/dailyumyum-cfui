@@ -6,7 +6,7 @@ const HomepageView = () => {
   return (
     <>
       <HomepageIntro />
-      <HomepagePopularRecipes />
+      {/* <HomepagePopularRecipes /> */}
       <HomepageAbout />
     </>
   );

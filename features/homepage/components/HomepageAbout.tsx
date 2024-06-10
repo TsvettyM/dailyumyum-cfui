@@ -25,7 +25,7 @@ const HomepageAbout = () => {
 
             <CommonButton
               type="button"
-              href="/"
+              href="/recipe/ChipiChipi"
               style="border"
               title="Get this recipe"
               className="w-[160px] md:w-[180px] lg:w-[193px]"

@@ -24,7 +24,7 @@ const HomepageIntro = () => {
 
           <CommonButton
             type="button"
-            href="/"
+            href="/recipes"
             style="green"
             title="Explore our recipes"
             className="flex justify-center items-center h-8 w-full md:w-[203px]"
@@ -44,7 +44,7 @@ const HomepageIntro = () => {
 
           <CommonButton
             type="button"
-            href="/"
+            href="/recipe/Tteokkbeokki"
             style="border"
             title="Get this recipe"
             className="mt-5 w-[140px] s:w-[145px] sm:w-[160px] md:w-[193px] lg:mt-4.5 bg-white relative"

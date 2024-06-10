@@ -47,7 +47,7 @@ const HomepageIntro = () => {
             href="/recipe/Tteokkbeokki"
             style="border"
             title="Get this recipe"
-            className="mt-5 w-[140px] s:w-[145px] sm:w-[160px] md:w-[193px] lg:mt-4.5 bg-white relative"
+            className="mt-5 w-[155px] sm:w-[160px] md:w-[193px] lg:mt-4.5 bg-white relative -bottom-1 lg:-bottom-0 -right-1 sm:right-7 md:right-4 lg:right-1.5"
           />
         </div>
       </div>

@@ -7,7 +7,7 @@ const HomepageIntro = () => {
     <section className="homepage__section--intro overflow-hidden py-3 md:py-20">
       <div className="container relative flex flex-col items-center justify-center md:flex-row">
         <div className="left__side flex flex-col justify-center md:justify-start items-center md:items-start md:mr-auto">
-          <h1 className="text-48 font-bold text-black lg:text-64">
+          <h1 className="text-36 md:text-48 font-bold text-black lg:text-64">
             <span className="flex items-end justify-center md:justify-start">
               Daily recipes
               <span className="relative bottom-6 ml-1 block h-2.5 w-2.5 rounded-2 bg-green" />
@@ -24,7 +24,7 @@ const HomepageIntro = () => {
 
           <CommonButton
             type="button"
-            href="/recipes"
+            href="/recipe"
             style="green"
             title="Explore our recipes"
             className="flex justify-center items-center h-8 w-full md:w-[203px]"

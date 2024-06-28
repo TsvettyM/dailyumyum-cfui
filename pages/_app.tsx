@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "../styles/global.scss";
 import CommonHeader from "@/features/common/components/CommonHeader";
 import CommonFooter from "@/features/common/components/CommonFooter";
+import axios from "axios";
 
 const nunito = Nunito({
   weight: ["500", "700"],
@@ -12,6 +13,8 @@ const nunito = Nunito({
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  axios.defaults.baseURL = "/api";
+
   return (
     <main className={nunito.className}>
       <CommonHeader />

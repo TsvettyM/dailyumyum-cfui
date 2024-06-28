@@ -24,7 +24,7 @@ const HomepageIntro = () => {
 
           <CommonButton
             type="button"
-            href="/recipe"
+            href="/recipes"
             style="green"
             title="Explore our recipes"
             className="flex justify-center items-center h-8 w-full md:w-[203px]"

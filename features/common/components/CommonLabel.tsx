@@ -18,7 +18,7 @@ const CommonLabel = ({ htmlFor, text, required, style, className }: IProps) => {
       case "white":
         return "text-white";
       case "black":
-        return "text-gray";
+        return "text-black";
     }
   };
 

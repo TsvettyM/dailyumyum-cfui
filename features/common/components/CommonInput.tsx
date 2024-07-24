@@ -5,8 +5,8 @@ import CommonLabel from "./CommonLabel";
 import CommonError from "./CommonError";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  hookRegister: UseFormRegisterReturn;
-  fieldError: FieldError | undefined;
+  hookRegister?: UseFormRegisterReturn;
+  fieldError?: FieldError | undefined;
   label?: string;
   styleMode: "white" | "black";
   className?: string;

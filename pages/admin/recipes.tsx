@@ -1,6 +1,10 @@
+import IconDelete from "@/features/icons/components/IconDelete";
+import IconEdit from "@/features/icons/components/IconEdit";
+import IconLogo from "@/features/icons/components/IconLogo";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import AdminHeader from "./AdminHeader";
 
 interface IRecipe {
   id: number;
@@ -19,10 +23,20 @@ const AdminRecipesPage = () => {
   }, []);
 
   return (
-    <div className="admin__page flex h-full">
-      <nav className="bg-gray h-full w-[250px]">Test</nav>
-      <div className="mx-20 w-full">
-        <div className="grid grid-cols-6">
+    <div className="admin__page flex h-full bg-[#EFF9F5]">
+      <nav className="flex flex-col bg-[#DCECEA] text-black font-semibold h-full w-[250px] pt-4 pl-3 shadow-right shadow-[#889FA5]">
+        <IconLogo className="h-10 w-[160px] mb-3" />
+
+        <Link href="/admin/recipes" className="mb-3">
+          Recipes
+        </Link>
+        <Link href="/">Category</Link>
+      </nav>
+
+      <div className="mx-20 w-full mt-5">
+        <AdminHeader title="Recipes" />
+
+        <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_100px] pt-10 pb-5 text-20 font-bold px-3">
           <p>Id</p>
           <p>Title</p>
           <p>Category</p>
@@ -30,17 +44,25 @@ const AdminRecipesPage = () => {
           <p>Description</p>
           <p>Action</p>
         </div>
-        <ul>
+        <ul className="shadow-spread bg-white rounded-8">
           {data.map((item) => (
-            <div key={item.id} className="grid grid-cols-6">
+            <div
+              key={item.id}
+              className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_100px] w-full shadow-bottom last-of-type:rounded-br-8 last-of-type:rounded-bl-8 p-3"
+            >
               <p>{item.id}</p>
               <p>{item.title}</p>
               <p>{item.category}</p>
               <p>{item.products}</p>
               <p>{item.description}</p>
-              <div>
-                <Link href="/">Edit</Link>
-                <button>x</button>
+
+              <div className="flex items-start space-x-3">
+                <Link href="/" className="flex items-center">
+                  <IconEdit className="mr-1 w-6 h-6" />
+                </Link>
+                <button type="submit">
+                  <IconDelete className="w-6 h-6" />
+                </button>
               </div>
             </div>
           ))}

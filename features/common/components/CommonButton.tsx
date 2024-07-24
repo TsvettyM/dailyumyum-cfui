@@ -9,10 +9,11 @@ interface IProps {
   style?: "border" | "green" | "black";
   className?: string;
   onClick?: () => void;
+  icon?: ReactNode;
 }
 
 const CommonButton = (props: IProps) => {
-  const { title, href, type, style, className, onClick } = props;
+  const { title, href, type, style, className, onClick, icon } = props;
 
   const getStyle = () => {
     switch (style) {
@@ -39,6 +40,7 @@ const CommonButton = (props: IProps) => {
           }
         )}
       >
+        {icon}
         {title}
       </Link>
     );
@@ -56,6 +58,7 @@ const CommonButton = (props: IProps) => {
         }
       )}
     >
+      {icon}
       {title}
     </button>
   );

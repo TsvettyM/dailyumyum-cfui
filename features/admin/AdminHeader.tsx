@@ -11,7 +11,7 @@ const AdminHeader = ({ title }: IProps) => {
       <h1 className="text-32">{title}</h1>
 
       <CommonButton
-        href={`/admin/${title}/create`}
+        href={`/admin/create/${title.toLowerCase()}`}
         style="black"
         type="button"
         title="Create"

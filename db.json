@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "password123",
       "isAdmin": true
@@ -9,21 +9,14 @@
   ],
   "recipes": [
     {
-      "id": 1,
+      "id": "2",
       "title": "Bibimbap",
       "category": "asian",
       "products": "2 eggs, 300 gram rice, meat",
       "description": "First chop the vegetables.."
     },
     {
-      "id": 1,
-      "title": "Bibimbap",
-      "category": "asian",
-      "products": "2 eggs, 300 gram rice, meat",
-      "description": "First chop the vegetables.."
-    },
-    {
-      "id": 1,
+      "id": "3",
       "title": "Bibimbap",
       "category": "asian",
       "products": "2 eggs, 300 gram rice, meat",
@@ -32,7 +25,7 @@
   ],
   "category": [
     {
-      "id": 1,
+      "id": "1",
       "title": "User",
       "description": "name"
     }

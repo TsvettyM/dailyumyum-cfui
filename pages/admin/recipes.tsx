@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import AdminHeader from "./AdminHeader";
+import { error } from "console";
 
 interface IRecipe {
   id: number;
@@ -21,6 +22,19 @@ const AdminRecipesPage = () => {
       setData(res.data);
     });
   }, []);
+
+  const handleDelete = async (id: number) => {
+    console.log(id);
+
+    axios
+      .delete("http://localhost:3001/recipes/" + id)
+      .then(() => {
+        setData(data.filter((item) => item.id !== id));
+      })
+      .catch((error) => {
+        console.error("There was an error deleting the recipe!", error);
+      });
+  };
 
   return (
     <div className="admin__page flex h-full bg-[#EFF9F5]">
@@ -60,7 +74,7 @@ const AdminRecipesPage = () => {
                 <Link href="/" className="flex items-center">
                   <IconEdit className="mr-1 w-6 h-6" />
                 </Link>
-                <button type="submit">
+                <button type="submit" onClick={() => handleDelete(item.id)}>
                   <IconDelete className="w-6 h-6" />
                 </button>
               </div>

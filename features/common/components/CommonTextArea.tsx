@@ -5,16 +5,14 @@ import CommonLabel from "./CommonLabel";
 import CommonError from "./CommonError";
 
 interface IProps extends InputHTMLAttributes<HTMLTextAreaElement> {
-  hookRegister: UseFormRegisterReturn;
-  fieldError: FieldError | undefined;
+  error: string;
   label?: string;
   styleMode: "white" | "black";
   className?: string;
 }
 
 const CommonTextArea = (props: IProps) => {
-  const { label, hookRegister, fieldError, styleMode, className, ...rest } =
-    props;
+  const { label, error, styleMode, className, ...rest } = props;
 
   const getStyle = () => {
     switch (styleMode) {
@@ -26,7 +24,11 @@ const CommonTextArea = (props: IProps) => {
   };
 
   return (
-    <div className="common__input flex flex-col group relative">
+    <div
+      className={classNames("common__input flex flex-col group relative", {
+        [className || ""]: className,
+      })}
+    >
       <CommonLabel
         style={styleMode}
         htmlFor={rest.id}
@@ -39,15 +41,13 @@ const CommonTextArea = (props: IProps) => {
           "resize-none font-medium border rounded-8 p-2 bg-transparent outline-none",
           {
             [getStyle()]: getStyle,
-            [className || ""]: className,
           }
         )}
-        {...hookRegister}
         {...rest}
         required={false}
       />
 
-      {fieldError?.message ? <CommonError fieldError={fieldError} /> : null}
+      {error ? <CommonError error={error} /> : null}
     </div>
   );
 };

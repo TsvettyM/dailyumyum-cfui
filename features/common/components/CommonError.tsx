@@ -1,20 +1,14 @@
-import { FieldError } from "react-hook-form";
-
 interface IProps {
-  fieldError: FieldError;
+  error: string;
 }
 
-const CommonError = ({ fieldError }: IProps) => {
-  const handleClick = () => {
-    if (!fieldError?.ref?.focus) {
-      return;
-    }
-    fieldError.ref.focus();
-  };
-
+const CommonError = ({ error }: IProps) => {
   return (
-    <button type="button" onClick={handleClick}>
-      {fieldError.message}
+    <button
+      type="button"
+      className="absolute -bottom-6 left-0 text-14 text-left text-red"
+    >
+      {error}
     </button>
   );
 };

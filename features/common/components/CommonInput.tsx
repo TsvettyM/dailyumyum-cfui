@@ -1,20 +1,17 @@
 import { InputHTMLAttributes } from "react";
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import classNames from "classnames";
 import CommonLabel from "./CommonLabel";
 import CommonError from "./CommonError";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  hookRegister?: UseFormRegisterReturn;
-  fieldError?: FieldError | undefined;
+  error?: string;
   label?: string;
   styleMode: "white" | "black";
   className?: string;
 }
 
 const CommonInput = (props: IProps) => {
-  const { label, hookRegister, fieldError, styleMode, className, ...rest } =
-    props;
+  const { label, error, styleMode, className, ...rest } = props;
 
   const getStyle = () => {
     switch (styleMode) {
@@ -26,7 +23,14 @@ const CommonInput = (props: IProps) => {
   };
 
   return (
-    <div className="common__input group relative flex w-full flex-col">
+    <div
+      className={classNames(
+        "common__input group relative flex w-full flex-col",
+        {
+          [className || ""]: className,
+        }
+      )}
+    >
       <CommonLabel
         style={styleMode}
         htmlFor={rest.id}
@@ -39,15 +43,13 @@ const CommonInput = (props: IProps) => {
           "w-full resize-none rounded-8 border bg-transparent p-2 font-medium outline-none",
           {
             [getStyle()]: getStyle,
-            [className || ""]: className,
           }
         )}
-        {...hookRegister}
         {...rest}
         required={false}
       />
 
-      {fieldError?.message ? <CommonError fieldError={fieldError} /> : null}
+      {error ? <CommonError error={error} /> : null}
     </div>
   );
 };

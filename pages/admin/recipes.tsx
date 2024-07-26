@@ -6,7 +6,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import IconSuccessMessageClose from "@/features/icons/components/IconSuccessMessageClose";
+import IconClose from "@/features/icons/components/IconClose";
 
 interface IRecipe {
   id: number;
@@ -73,7 +73,7 @@ const AdminRecipesPage = () => {
                   onClick={() => setShowMessage("")}
                   className="ml-3"
                 >
-                  <IconSuccessMessageClose className="text-center ml-auto" />
+                  <IconClose className="text-center ml-auto" />
                 </button>
               </p>
             </div>

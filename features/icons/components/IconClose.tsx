@@ -1,6 +1,6 @@
 import IIcon from "../interfaces/icon.interface";
 
-const IconSuccessMessageClose = ({ className }: IIcon) => {
+const IconClose = ({ className }: IIcon) => {
   return (
     <svg
       className={className}
@@ -17,4 +17,4 @@ const IconSuccessMessageClose = ({ className }: IIcon) => {
   );
 };
 
-export default IconSuccessMessageClose;
+export default IconClose;

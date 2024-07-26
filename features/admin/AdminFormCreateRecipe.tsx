@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { FormEvent, useEffect, useState } from "react";
 import CommonInput from "../common/components/CommonInput";
 import CommonTextArea from "../common/components/CommonTextArea";
+import CommonInputSelect from "../common/components/CommonInputSelect";
 
 const AdminFormCreateRecipe = () => {
   const [title, setTitle] = useState("");
@@ -19,6 +20,7 @@ const AdminFormCreateRecipe = () => {
 
   const router = useRouter();
   const { id } = router.query;
+  const data = ["Asian", "Turkish", "Italian", "Greek", "Russian", "Balkan"];
 
   useEffect(() => {
     if (id) {
@@ -51,6 +53,8 @@ const AdminFormCreateRecipe = () => {
       newValidationErrors.description =
         "Description must be less than 1024 characters!";
     }
+    console.log(category);
+
     if (category === "") {
       newValidationErrors.category = "You must choose category first!";
     }
@@ -119,16 +123,15 @@ const AdminFormCreateRecipe = () => {
         onChange={(e) => setTitle(e.target.value)}
         className="mb-6"
       />
-      <CommonInput
-        label="Category:"
-        type="text"
-        styleMode="black"
-        value={category}
+
+      <CommonInputSelect
+        data={data}
+        setItem={setCategory}
+        item={category}
         error={validationErrors.category}
-        placeholder="Enter your category"
-        onChange={(e) => setCategory(e.target.value)}
-        className="mb-6"
+        label="Category:"
       />
+
       <CommonInput
         label="Products:"
         type="text"
@@ -156,6 +159,7 @@ const AdminFormCreateRecipe = () => {
       >
         {router.query.id ? "Update" : "Create"}
       </button>
+
       {error && <p className="text-red">{error}</p>}
     </form>
   );

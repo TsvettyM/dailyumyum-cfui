@@ -24,7 +24,7 @@ const CommonLabel = ({ htmlFor, text, required, style, className }: IProps) => {
 
   return (
     <label
-      className={classNames("my-1 text-14 font-semibold", {
+      className={classNames("my-1 text-16 font-bold", {
         [getStyle()]: getStyle,
         [className || ""]: className,
       })}

@@ -4,11 +4,11 @@ import HomepagePopularRecipes from "./HomepagePopularRecipes";
 
 const HomepageView = () => {
   return (
-    <>
+    <div>
       <HomepageIntro />
       {/* <HomepagePopularRecipes /> */}
       <HomepageAbout />
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import CommonInput from "../common/components/CommonInput";
 import CommonTextArea from "../common/components/CommonTextArea";
 
@@ -16,7 +16,20 @@ const AdminFormCreateRecipe = () => {
     category: "",
     description: "",
   });
+
   const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:3001/recipes/${id}`).then((res) => {
+        setTitle(res.data.title);
+        setCategory(res.data.category);
+        setProducts(res.data.products);
+        setDescription(res.data.description);
+      });
+    }
+  }, [id]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -53,22 +66,38 @@ const AdminFormCreateRecipe = () => {
       return;
     }
 
-    const id = "id" + Math.random().toString(36).substring(2, 9);
+    if (router.query.id) {
+      axios
+        .put(`http://localhost:3001/recipes/${router.query.id}`, {
+          title,
+          category,
+          products,
+          description,
+        })
+        .then(() => {
+          router.push("/admin/recipes");
+        })
+        .catch((err) => {
+          setError("There was an error updating the recipe.");
+        });
+    } else {
+      const id = "id" + Math.random().toString(36).substring(2, 9);
 
-    axios
-      .post("http://localhost:3001/recipes", {
-        id: id,
-        title,
-        category,
-        products,
-        description,
-      })
-      .then(() => {
-        router.push({ pathname: "/admin/recipes", query: { success: "true" } });
-      })
-      .catch((err) => {
-        setError("Your recipe is not uploaded");
-      });
+      axios
+        .post(`http://localhost:3001/recipes/`, {
+          id: id,
+          title,
+          category,
+          products,
+          description,
+        })
+        .then(() => {
+          router.push("/admin/recipes");
+        })
+        .catch((err) => {
+          setError("There was an error updating the recipe.");
+        });
+    }
   };
 
   return (
@@ -77,8 +106,9 @@ const AdminFormCreateRecipe = () => {
       className="admin__form-create--recipe flex flex-col relative w-[500px] bg-[#DCECEA] rounded-8 p-5 shadow-[#748D93] shadow-bottom-right"
     >
       <h1 className="font-semibold text-black text-32 text-center mt-2 mb-6">
-        Let's create your recipe
+        {router.query.id ? "Edit your recipe" : "Let's create your recipe"}
       </h1>
+
       <CommonInput
         label="Title:"
         type="text"
@@ -124,8 +154,9 @@ const AdminFormCreateRecipe = () => {
         type="submit"
         className="ml-auto mt-10 px-4 py-2 bg-[#748D93] w-[200px] text-white rounded-8"
       >
-        Create
+        {router.query.id ? "Update" : "Create"}
       </button>
+      {error && <p className="text-red">{error}</p>}
     </form>
   );
 };

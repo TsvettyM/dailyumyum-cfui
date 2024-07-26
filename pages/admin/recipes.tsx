@@ -49,7 +49,7 @@ const AdminRecipesPage = () => {
   };
 
   return (
-    <div className="admin__page flex h-full bg-[#EFF9F5]">
+    <div className="admin__recipes-page flex h-full bg-[#EFF9F5]">
       <nav className="flex flex-col bg-[#DCECEA] text-black font-semibold h-full w-[250px] pt-4 pl-3 shadow-right shadow-[#889FA5]">
         <IconLogo className="h-10 w-[160px] mb-3" />
 
@@ -101,8 +101,14 @@ const AdminRecipesPage = () => {
               <p>{item.description}</p>
 
               <div className="flex items-start space-x-3">
-                <Link href="/admin/recipes/edit" className="flex items-center">
-                  <IconEdit className="mr-1 w-6 h-6" />
+                <Link
+                  href={{
+                    pathname: "/admin/edit/recipes",
+                    query: { id: item.id.toString() },
+                  }}
+                  className="flex items-center"
+                >
+                  <IconEdit className="mx-2 w-6 h-6" />
                 </Link>
                 <button type="button" onClick={() => handleDelete(item.id)}>
                   <IconDelete className="w-6 h-6" />

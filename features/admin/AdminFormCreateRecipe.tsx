@@ -11,6 +11,7 @@ const AdminFormCreateRecipe = () => {
   const [products, setProducts] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
+  const [categoryList, setCategoryList] = useState<string[]>([]);
   const [validationErrors, setValidationErrors] = useState({
     title: "",
     products: "",
@@ -20,7 +21,13 @@ const AdminFormCreateRecipe = () => {
 
   const router = useRouter();
   const { id } = router.query;
-  const data = ["Asian", "Turkish", "Italian", "Greek", "Russian", "Balkan"];
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/category`).then((res) => {
+      const list = res.data.map((item) => item.title);
+      setCategoryList(list);
+    });
+  }, []);
 
   useEffect(() => {
     if (id) {
@@ -125,7 +132,7 @@ const AdminFormCreateRecipe = () => {
       />
 
       <CommonInputSelect
-        data={data}
+        data={categoryList}
         setItem={setCategory}
         item={category}
         error={validationErrors.category}

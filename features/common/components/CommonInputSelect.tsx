@@ -1,7 +1,7 @@
 import IconClose from "@/features/icons/components/IconClose";
 import IconDropMenuArrow from "@/features/icons/components/IconDropMenuArrow";
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CommonLabel from "./CommonLabel";
 import CommonError from "./CommonError";
 
@@ -16,27 +16,37 @@ interface IProps {
 const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [selectedData, setSelectedData] = useState<string[]>([]);
-  console.log(item);
+
+  useEffect(() => {
+    if (item.length === 0) {
+      return;
+    }
+    setSelectedData(item.split(",").map((i) => i.trim()));
+  }, [item]);
 
   function handleOpen() {
     setIsOpenMenu(!isOpenMenu);
   }
-  function handleSelect(item: string) {
+
+  function handleSelect(selectedItem: string) {
     let updatedData;
-    if (selectedData.includes(item)) {
+    if (selectedData.includes(selectedItem)) {
       updatedData = selectedData.filter(
-        (existingItem) => existingItem !== item
+        (existingItem) => existingItem !== selectedItem
       );
     } else {
-      updatedData = [...selectedData, item];
+      updatedData = [...selectedData, selectedItem];
     }
     setSelectedData(updatedData);
     setItem(updatedData.join(","));
   }
-  function handleRemove(item: string) {
-    setSelectedData((prevState) => {
-      return prevState.filter((existingItem) => existingItem !== item);
-    });
+
+  function handleRemove(removedItem: string) {
+    const updatedData = selectedData.filter(
+      (existingItem) => existingItem !== removedItem
+    );
+    setSelectedData(updatedData);
+    setItem(updatedData.join(","));
   }
 
   return (
@@ -48,23 +58,21 @@ const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
         onClick={handleOpen}
       >
         {selectedData.length > 0
-          ? selectedData.map((item) => {
-              return (
-                <span
-                  className="flex items-center justify-center text-left text-black bg-[#748D93]/20 py-1 px-2.5 rounded-8"
-                  key={item}
+          ? selectedData.map((selectedItem) => (
+              <span
+                className="flex items-center justify-center text-left text-black bg-[#748D93]/20 py-1 px-2.5 rounded-8"
+                key={selectedItem}
+              >
+                {selectedItem}
+                <button
+                  type="button"
+                  onClick={() => handleRemove(selectedItem)}
+                  className="common__btn--select relative text-center text-black font-bold text-18"
                 >
-                  {item}
-                  <button
-                    type="button"
-                    onClick={() => handleRemove(item)}
-                    className="common__btn--select relative text-center text-black font-bold text-18"
-                  >
-                    <IconClose className="ml-2" />
-                  </button>
-                </span>
-              );
-            })
+                  <IconClose className="ml-2" />
+                </button>
+              </span>
+            ))
           : "Choose a category"}
 
         {selectedData.length > 0 ? (
@@ -80,24 +88,22 @@ const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
 
       {isOpenMenu ? (
         <div className="absolute flex flex-col bg-[#DCECEA] top-20 right-0 z-20 border border-black rounded-8 w-full">
-          {data.map((item, index) => {
-            return (
-              <button
-                type="button"
-                key={index}
-                onClick={() => handleSelect(item)}
-                className={classNames(
-                  "text-left font-semibold p-2 hover:bg-black/15 duration-200  last-of-type:rounded-b-8 first-of-type:rounded-t-8",
-                  {
-                    "bg-[#748D93]/20 border-b-2 border-[#748D93]":
-                      selectedData.includes(item),
-                  }
-                )}
-              >
-                {item}
-              </button>
-            );
-          })}
+          {data.map((dataItem, index) => (
+            <button
+              type="button"
+              key={index}
+              onClick={() => handleSelect(dataItem)}
+              className={classNames(
+                "text-left font-semibold p-2 hover:bg-black/15 duration-200  last-of-type:rounded-b-8 first-of-type:rounded-t-8",
+                {
+                  "bg-[#748D93]/20 border-b-2 border-[#748D93]":
+                    selectedData.includes(dataItem),
+                }
+              )}
+            >
+              {dataItem}
+            </button>
+          ))}
         </div>
       ) : null}
 

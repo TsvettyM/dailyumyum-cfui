@@ -1,4 +1,4 @@
-import RecipeView from "@/features/recipe/RecipeView";
+import RecipeView from "@/features/recipepage/RecipeView";
 import Head from "next/head";
 
 const Recipe = () => {

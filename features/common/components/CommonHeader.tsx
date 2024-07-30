@@ -3,11 +3,36 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import CommonButton from "./CommonButton";
 import IconMobileMenu from "@/features/icons/components/IconMobileMenu";
-import CommonDropdownButton from "./CommonDropDownButton";
 import classNames from "classnames";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import CommonDropdownButton from "./CommonDropDownButton";
+
+export interface ICategoryListItem {
+  id: string;
+  title: string;
+  description: string;
+}
 
 const CommonHeader = () => {
   const router = useRouter();
+  const [categories, setCategories] = useState<string[]>([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/category")
+      .then((res) => {
+        const categoryList = (res.data as ICategoryListItem[]).map(
+          (item) => item.title
+        );
+        setCategories(categoryList);
+      })
+      .catch((err) => {
+        setError("There was an error fetching the categories.");
+        console.log(err);
+      });
+  }, []);
 
   return (
     <header>
@@ -57,18 +82,18 @@ const CommonHeader = () => {
           className="hidden w-[115px] h-8"
         />
 
-        {router.pathname === "/recipes" ? (
+        {router.pathname === "/recipes" && categories.length > 0 ? (
           <CommonDropdownButton
             className="ml-auto mr-5"
             title={
               <p className="flex">
                 All
                 <span className="flex items-center text-gray-500 ml-1">
-                  (5)
+                  ({categories.length})
                 </span>
               </p>
             }
-            items={["All", "Asian", "Mexican"]}
+            items={["All", ...categories]}
           />
         ) : null}
 

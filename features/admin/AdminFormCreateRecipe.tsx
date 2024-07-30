@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import CommonInput from "../common/components/CommonInput";
 import CommonTextArea from "../common/components/CommonTextArea";
 import CommonInputSelect from "../common/components/CommonInputSelect";
+import { ICategoryListItem } from "../common/components/CommonHeader";
 
 const AdminFormCreateRecipe = () => {
   const [title, setTitle] = useState("");
@@ -24,7 +25,7 @@ const AdminFormCreateRecipe = () => {
 
   useEffect(() => {
     axios.get(`http://localhost:3001/category`).then((res) => {
-      const list = res.data.map((item) => item.title);
+      const list = (res.data as ICategoryListItem[]).map((item) => item.title);
       setCategoryList(list);
     });
   }, []);
@@ -121,12 +122,12 @@ const AdminFormCreateRecipe = () => {
       </h1>
 
       <CommonInput
-        label="Title:"
+        label="Name:"
         type="text"
         styleMode="black"
         value={title}
         error={validationErrors.title}
-        placeholder="Enter your title"
+        placeholder="Enter your name"
         onChange={(e) => setTitle(e.target.value)}
         className="mb-6"
       />

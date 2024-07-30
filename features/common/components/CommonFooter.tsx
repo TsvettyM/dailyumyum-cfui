@@ -9,12 +9,6 @@ import CommonInput from "./CommonInput";
 import CommonTextArea from "./CommonTextArea";
 
 const CommonFooter = () => {
-  const { register, handleSubmit, formState } = useForm<{
-    name: string;
-    email: string;
-    message: string;
-  }>();
-
   function onSubmit(formValues: any) {
     console.log(formValues);
   }
@@ -68,17 +62,13 @@ const CommonFooter = () => {
               Contact Us
             </h2>
 
-            <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col" onSubmit={onSubmit}>
               <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 my-2">
                 <CommonInput
                   placeholder="Enter your name..."
                   styleMode="white"
                   type="text"
                   label="Name"
-                  hookRegister={register("name", {
-                    required: { message: "This is required", value: true },
-                  })}
-                  fieldError={formState.errors.name}
                 />
 
                 <CommonInput
@@ -86,10 +76,6 @@ const CommonFooter = () => {
                   styleMode="white"
                   type="text"
                   label="Email"
-                  hookRegister={register("email", {
-                    required: { message: "This is required", value: true },
-                  })}
-                  fieldError={formState.errors.email}
                 />
               </div>
 
@@ -98,10 +84,7 @@ const CommonFooter = () => {
                 placeholder="Enter your message..."
                 styleMode="white"
                 label="Message"
-                hookRegister={register("message", {
-                  required: { message: "This is required", value: true },
-                })}
-                fieldError={formState.errors.message}
+                error=""
               />
 
               <button

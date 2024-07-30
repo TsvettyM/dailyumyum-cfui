@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import IconClose from "@/features/icons/components/IconClose";
 
-interface IRecipe {
+export interface IRecipeList {
   id: number;
   title: string;
   category: string;
@@ -17,7 +17,7 @@ interface IRecipe {
 }
 
 const AdminRecipesPage = () => {
-  const [data, setData] = useState<IRecipe[]>([]);
+  const [data, setData] = useState<IRecipeList[]>([]);
   const [showMessage, setShowMessage] = useState("");
   const router = useRouter();
 
@@ -94,7 +94,7 @@ const AdminRecipesPage = () => {
 
         <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_100px] pt-10 pb-5 text-20 font-bold px-3">
           <p>Id</p>
-          <p>Title</p>
+          <p>Name</p>
           <p>Category</p>
           <p>Products</p>
           <p>Description</p>

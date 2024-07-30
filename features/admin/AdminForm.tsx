@@ -1,6 +1,6 @@
-import AdminFormCreateCategory from "./AdminFormCreateCategory";
-import AdminFormCreateRecipe from "./AdminFormCreateRecipe";
 import { useRouter } from "next/router";
+import AdminFormCreateRecipe from "./AdminFormCreateRecipe";
+import AdminFormCreateCategory from "./AdminFormCreateCategory";
 
 const AdminForm = () => {
   const router = useRouter();

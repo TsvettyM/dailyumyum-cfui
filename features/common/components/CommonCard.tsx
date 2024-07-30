@@ -7,9 +7,10 @@ import Image from "next/image";
 import IRecipe from "../../homepage/interfaces/recipe.interface";
 import classNames from "classnames";
 import Link from "next/link";
+import { IRecipeList } from "@/pages/admin/recipes";
 
 interface IProps {
-  recipe: IRecipe;
+  recipe: IRecipeList;
   size: "big" | "small";
 }
 
@@ -21,7 +22,8 @@ const CommonCard = ({ recipe, size }: IProps) => {
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom duration-200 hover:-translate-y-2",
         {
           "px-6": size === "big",
-          "px-3": size === "small",
+          "px-3 pb-3": size === "small",
+          "!h-[225px] !w-[200px]": size === "small",
         }
       )}
     >
@@ -35,7 +37,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
           "-mb-2": size === "small",
         })}
       >
-        <Image src={recipe.image} alt="" fill draggable={false} />
+        <Image src="/images/intro-img.png" alt="" fill draggable={false} />
       </div>
       <button type="button" className="absolute left-4 top-3">
         <IconLiked
@@ -61,6 +63,12 @@ const CommonCard = ({ recipe, size }: IProps) => {
       >
         {recipe.title}
       </h4>
+      <hr
+        className={classNames("w-full rounded-10 text-[#AFACAC]", {
+          "mt-10": size === "big",
+          "mt-4": size === "small",
+        })}
+      />
       <p
         className={classNames("flex font-medium text-black", {
           "text-16": size === "big",
@@ -73,13 +81,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
       >
         {recipe.description}
       </p>
-      <hr
-        className={classNames("w-full rounded-10 text-[#AFACAC]", {
-          "mt-10": size === "big",
-          "mt-4": size === "small",
-        })}
-      />
-      <div
+      {/* <div
         className={classNames("flex items-center w-full justify-between", {
           "my-5": size === "big",
           "my-3": size === "small",
@@ -129,7 +131,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
           />
           {recipe.rating}
         </p>
-      </div>
+      </div> */}
     </Link>
   );
 };

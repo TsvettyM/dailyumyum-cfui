@@ -10,84 +10,82 @@
   "recipes": [
     {
       "title": "Bibimbap (Chinese)325325",
-      "category": "Asiandsds",
+      "category": "Asian",
       "products": "2 eggs, 300 gram rice, meat",
       "description": "First chop the vegetables.. Adsfsdgdg",
       "id": "2"
     },
     {
       "title": "Bibimbap (Korean)",
-      "category": "Russian,Italian",
+      "category": "Italian",
       "products": "2 eggs, 300 gram rice, meat",
       "description": "First chop the vegetables..",
       "id": "3"
     },
     {
       "title": "Chicken Pasta",
-      "category": "Asian",
+      "category": "Mexican",
       "products": "300 grams pasta, 500 grams chicken meat",
       "description": "First you need to boil the pasta..",
       "id": "id71w7k5t"
     },
     {
       "title": "vzxvz",
-      "category": "Asian,Turkish",
+      "category": "Turkish",
       "products": "vcvxvcx",
       "description": "cxvxvxv",
       "id": "id4keymgh"
     },
     {
-      "id": "idpke4my6",
-      "title": "fsdfsdf",
-      "category": "Asian,Balkan",
-      "products": "asfasa",
-      "description": "afafsf"
-    },
-    {
-      "title": "",
-      "category": "adsad,aaaaa,asian",
-      "products": "",
+      "title": "Tteokkbokki",
+      "category": "Asian",
+      "products": "1 ketchup, 1 souce souce",
       "description": "",
       "id": "id69vwq5n"
     },
     {
-      "id": "ida4d3dvi",
-      "title": "",
-      "category": "adsad",
-      "products": "",
-      "description": ""
+      "title": "Sandwich",
+      "category": "German",
+      "products": "1 ham, 1 cheese..",
+      "description": "",
+      "id": "ida4d3dvi"
     }
   ],
   "category": [
     {
-      "title": "asian",
+      "title": "Asian",
       "description": "name",
       "id": "1"
     },
     {
-      "id": "idsqv5t1v",
-      "title": "adsad",
-      "description": "grgegredsg"
+      "title": "Turkish",
+      "description": "csdvcdvdvdsv",
+      "id": "idrqu0ey9"
     },
     {
-      "id": "idyjtfuxi",
-      "title": "aaaaa",
-      "description": "sdfddsfsf"
+      "title": "German",
+      "description": "",
+      "id": "idpfh6fja"
     },
     {
-      "id": "idrqu0ey9",
-      "title": "Kiril",
-      "description": "csdvcdvdvdsv"
+      "title": "Russian",
+      "description": "",
+      "id": "id50vwp0x"
     },
     {
-      "id": "idpfh6fja",
-      "title": "dsdsd",
+      "id": "idp5oabyd",
+      "title": "Italian",
       "description": ""
     },
     {
-      "title": "hellotoday",
-      "description": "",
-      "id": "id50vwp0x"
+      "id": "idlurlpsz",
+      "title": "Mexican",
+      "description": ""
+    },
+    {
+      "id": "id1gs34na",
+      "title": "Arabian",
+      "description": ""
     }
   ]
 }

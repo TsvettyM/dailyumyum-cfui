@@ -1,4 +1,4 @@
-import RecipesView from "@/features/recipespage/components/RecipesView";
+import RecipesListView from "@/features/recipesListPage/components/RecipesListView";
 import Head from "next/head";
 
 const Recipes = () => {
@@ -6,7 +6,7 @@ const Recipes = () => {
     <>
       <Head>Recipes</Head>
 
-      <RecipesView />
+      <RecipesListView />
     </>
   );
 };

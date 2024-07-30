@@ -18,10 +18,16 @@ const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
   const [selectedData, setSelectedData] = useState<string[]>([]);
 
   useEffect(() => {
-    if (item.length === 0) {
+    if (item.trim().length === 0) {
+      setSelectedData([]);
       return;
     }
-    setSelectedData(item.split(",").map((i) => i.trim()));
+    setSelectedData(
+      item
+        .split(",")
+        .map((i) => i.trim())
+        .filter(Boolean)
+    );
   }, [item]);
 
   function handleOpen() {

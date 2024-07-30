@@ -14,7 +14,7 @@ const IconLine = ({ className }: IIcon) => {
         d="M71.8182 2H12C6.47716 2 2 6.47715 2 12V66"
         stroke="#356959"
         stroke-width="4"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );

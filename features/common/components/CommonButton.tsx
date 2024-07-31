@@ -20,7 +20,7 @@ const CommonButton = (props: IProps) => {
       case "border":
         return "text-green font-bold border border-green";
       case "green":
-        return "text-white bg-green";
+        return "text-white bg-[#748D93]";
       case "black":
         return "text-black font-medium border border-black";
       default:

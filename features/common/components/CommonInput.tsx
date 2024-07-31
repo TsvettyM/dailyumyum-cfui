@@ -46,7 +46,6 @@ const CommonInput = (props: IProps) => {
           }
         )}
         {...rest}
-        required={false}
       />
 
       {error ? <CommonError error={error} /> : null}

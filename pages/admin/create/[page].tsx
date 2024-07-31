@@ -1,4 +1,4 @@
-import AdminForm from "@/features/admin/AdminForm";
+import AdminForm from "../../../features/admin/AdminFormCreate";
 
 const Create = () => {
   return (

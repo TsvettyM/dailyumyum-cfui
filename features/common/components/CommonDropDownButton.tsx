@@ -6,14 +6,23 @@ interface IProps {
   title: ReactNode;
   items: string[];
   className?: string;
+  onClick?: (arg: string) => void;
 }
 
-const CommonDropdownButton = ({ title, items, className }: IProps) => {
+const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  function handleOnClick(arg: string) {
+    if (!onClick) {
+      return;
+    }
+
+    onClick(arg);
+  }
 
   return (
     <div
@@ -40,6 +49,7 @@ const CommonDropdownButton = ({ title, items, className }: IProps) => {
               type="button"
               key={index}
               className="text-left p-2 hover:text-gray"
+              onClick={() => handleOnClick(item)}
             >
               {item}
             </button>

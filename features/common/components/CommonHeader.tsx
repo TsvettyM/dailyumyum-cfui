@@ -34,6 +34,10 @@ const CommonHeader = () => {
       });
   }, []);
 
+  function handleOnClick(arg: string) {
+    router.push({ pathname: "/recipes", query: { category: arg } });
+  }
+
   return (
     <header>
       <div className="container flex items-center justify-center py-4">
@@ -85,6 +89,7 @@ const CommonHeader = () => {
         {router.pathname === "/recipes" && categories.length > 0 ? (
           <CommonDropdownButton
             className="ml-auto mr-5"
+            onClick={handleOnClick}
             title={
               <p className="flex">
                 All

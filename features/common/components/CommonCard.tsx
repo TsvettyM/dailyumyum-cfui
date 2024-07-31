@@ -1,10 +1,6 @@
 import IconLiked from "@/features/icons/components/IconLiked";
-import IconRating from "@/features/icons/components/IconRating";
 import IconShare from "@/features/icons/components/IconShare";
-import IconTime from "@/features/icons/components/IconTime";
-import IconYums from "@/features/icons/components/IconYums";
 import Image from "next/image";
-import IRecipe from "../../homepage/interfaces/recipe.interface";
 import classNames from "classnames";
 import Link from "next/link";
 import { IRecipeList } from "@/pages/admin/recipes";
@@ -15,9 +11,20 @@ interface IProps {
 }
 
 const CommonCard = ({ recipe, size }: IProps) => {
+  const maxTitleLength = 20;
+  const truncatedTitle =
+    recipe.title.length > maxTitleLength
+      ? `${recipe.title.substring(0, maxTitleLength)}...`
+      : recipe.title;
+  const maxDescriptionLength = 60;
+  const truncatedDescription =
+    recipe.description.length > maxDescriptionLength
+      ? `${recipe.description.substring(0, maxDescriptionLength)}...`
+      : recipe.description;
+
   return (
     <Link
-      href={`/recipe/${recipe.title}`}
+      href={`/recipe/${recipe.id}`}
       className={classNames(
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom duration-200 hover:-translate-y-2",
         {
@@ -28,13 +35,11 @@ const CommonCard = ({ recipe, size }: IProps) => {
       )}
     >
       <div
-        className={classNames("relative", {
+        className={classNames("relative flex flex-col", {
           "h-[180px] w-[210px]": size === "big",
           "h-[100px] w-[120px]": size === "small",
-          "-top-7": size === "big",
-          "-top-4": size === "small",
-          "-mb-5": size === "big",
-          "-mb-2": size === "small",
+          "-top-10 -mb-5": size === "big",
+          "-top-2.5 mb-auto": size === "small",
         })}
       >
         <Image src="/images/intro-img.png" alt="" fill draggable={false} />
@@ -56,30 +61,31 @@ const CommonCard = ({ recipe, size }: IProps) => {
         />
       </button>
       <h4
-        className={classNames("flex font-bold text-green", {
-          "text-32": size === "big",
-          "text-20": size === "small",
-        })}
+        className={classNames(
+          "flex font-bold text-green text-center max-w-[120px]",
+          {
+            "text-28": size === "big",
+            "text-18": size === "small",
+          }
+        )}
       >
-        {recipe.title}
+        {truncatedTitle}
       </h4>
       <hr
         className={classNames("w-full rounded-10 text-[#AFACAC]", {
-          "mt-10": size === "big",
-          "mt-4": size === "small",
+          "mt-10 mb-5": size === "big",
+          "mt-2 mb-2": size === "small",
         })}
       />
       <p
         className={classNames("flex font-medium text-black", {
           "text-16": size === "big",
           "text-12": size === "small",
-          "mt-5": size === "big",
-          "mt-2": size === "small",
           "max-w-[270px]": size === "big",
           "max-w-[200px]": size === "small",
         })}
       >
-        {recipe.description}
+        {truncatedDescription}
       </p>
       {/* <div
         className={classNames("flex items-center w-full justify-between", {

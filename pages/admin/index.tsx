@@ -26,16 +26,16 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="admin__page">
+    <div className="admin__page bg-[#EFF9F5]">
       <div className="container flex flex-col justify-center items-center py-10">
         <IconLogo className="h-11 w-[200px]" />
 
         <form
           onSubmit={handleLogin}
-          className="flex flex-col items-center w-[500px] shadow-spread p-6 rounded-8 mt-10"
+          className="flex flex-col items-center w-[500px] shadow-[#748D93] shadow-bottom-right bg-[#DCECEA] p-6 rounded-8 mt-10"
         >
           <IconProfile className="w-12 h-12 mb-1" />
-          <p className="mb-10">Please Log In</p>
+          <p className="mb-10 text-18 font-semibold">Please Log In</p>
 
           <CommonInput
             label="Username"
@@ -59,11 +59,11 @@ const AdminPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {error && <p>{error}</p>}
+          {error && <p className="text-red mt-1">{error}</p>}
 
           <CommonButton
             type="submit"
-            style="border"
+            style="green"
             title="Log In"
             className="mt-20 ml-auto !w-[260px] h-11"
           />

@@ -53,14 +53,17 @@ const AdminFormCreateRecipe = () => {
     if (title.length > 255) {
       newValidationErrors.title = "Title must be less than 255 characters!";
     }
+
     if (products.length > 255) {
       newValidationErrors.products =
         "Products must be less than 255 characters!";
     }
+
     if (description.length > 1024) {
       newValidationErrors.description =
         "Description must be less than 1024 characters!";
     }
+
     console.log(category);
 
     if (category === "") {
@@ -130,6 +133,7 @@ const AdminFormCreateRecipe = () => {
         placeholder="Enter your name"
         onChange={(e) => setTitle(e.target.value)}
         className="mb-6"
+        required
       />
 
       <CommonInputSelect
@@ -138,6 +142,7 @@ const AdminFormCreateRecipe = () => {
         item={category}
         error={validationErrors.category}
         label="Category:"
+        className="mb-6"
       />
 
       <CommonInput
@@ -149,6 +154,7 @@ const AdminFormCreateRecipe = () => {
         placeholder="Enter your products"
         onChange={(e) => setProducts(e.target.value)}
         className="mb-6"
+        required
       />
 
       <CommonTextArea
@@ -159,6 +165,7 @@ const AdminFormCreateRecipe = () => {
         placeholder="Enter your description"
         onChange={(e) => setDescription(e.target.value)}
         className="mb-6"
+        required
       />
 
       <button

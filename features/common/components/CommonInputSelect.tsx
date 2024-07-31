@@ -11,9 +11,17 @@ interface IProps {
   label?: string;
   setItem: (item: string) => void;
   item: string;
+  className?: string;
 }
 
-const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
+const CommonInputSelect = ({
+  data,
+  setItem,
+  item,
+  error,
+  label,
+  className,
+}: IProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [selectedData, setSelectedData] = useState<string[]>([]);
 
@@ -56,11 +64,16 @@ const CommonInputSelect = ({ data, setItem, item, error, label }: IProps) => {
   }
 
   return (
-    <div className="common__input-select group relative flex w-full flex-col">
+    <div
+      className={classNames(
+        "common__input-select group relative flex w-full flex-col",
+        { [className || ""]: className }
+      )}
+    >
       <CommonLabel htmlFor="" style="black" text={label} />
 
       <div
-        className="relative flex items-center border text-black/40 space-x-2 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer mb-4"
+        className="relative flex items-center border text-black/40 space-x-2 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer"
         onClick={handleOpen}
       >
         {selectedData.length > 0

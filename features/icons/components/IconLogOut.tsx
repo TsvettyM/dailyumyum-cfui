@@ -11,7 +11,7 @@ const IconLogOut = ({ className }: IIcon) => {
     >
       <path
         fill="none"
-        stroke="currentColor"
+        stroke="#748D93"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="32"

@@ -9,32 +9,11 @@
   ],
   "recipes": [
     {
-      "title": "Bibimbap (Chinese)325325",
-      "category": "Asian",
-      "products": "2 eggs, 300 gram rice, meat",
-      "description": "First chop the vegetables.. Adsfsdgdg",
-      "id": "2"
-    },
-    {
-      "title": "Bibimbap (Korean)",
-      "category": "Italian",
-      "products": "2 eggs, 300 gram rice, meat",
-      "description": "First chop the vegetables..",
-      "id": "3"
-    },
-    {
       "title": "Chicken Pasta",
       "category": "Mexican",
       "products": "300 grams pasta, 500 grams chicken meat",
       "description": "First you need to boil the pasta.. Asfsdgsdgsegrgves gsegsgsdgsdgsdg",
       "id": "id71w7k5t"
-    },
-    {
-      "title": "vzxvz",
-      "category": "Turkish",
-      "products": "vcvxvcx",
-      "description": "cxvxvxv",
-      "id": "id4keymgh"
     },
     {
       "title": "Tteokkbokki",
@@ -70,6 +49,13 @@
       "products": "dhrdhrdha",
       "description": "hrhrehrehraeh",
       "id": "id2nzg4cv"
+    },
+    {
+      "id": "id9xyp6nv",
+      "title": "Honey Chicken",
+      "category": "Asian",
+      "products": "2 large chicken breasts, 2.5 tablespoons cornstarch, 1/4 cup honey, 1/4 cup chicken broth, 2 tablespoons soy sauce, 1/2 tablespoon apple cider vinegar, 1/4 teaspoon garlic powder, 2 tablespoons olive oil or vegetable oil , Chopped scallions",
+      "description": "Cut the chicken into bite-size pieces. Add the chicken to a bowl and sprinkle the cornstarch over it. Toss until coated.To another bowl, add the honey, chicken broth, soy sauce, apple cider vinegar, and garlic powder. Add the oil to a skillet over medium-high heat. Let the pan get nice and hot. Cook the chicken until browned on two sides (about 3-5 min/side). Do two batches so as not to crowd the pan. You may need to add another tablespoon or so of oil when cooking the second batch. Important note: If the chicken is sticking, wait a little longer and it will release when it's nicely browned. Take the skillet off the heat and pour in the sauce from the bowl. Scrape up any browned bits from the bottom of the pan. Add the chicken back in. Reduce the heat to medium and return the pan to the burner. Let it cook for a few minutes until the sauce has thickened up a bit and the chicken is fully cooked through (I spoon some sauce over top). Serve immediately with chopped scallions if desired."
     }
   ],
   "category": [

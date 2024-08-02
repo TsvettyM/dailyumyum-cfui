@@ -60,7 +60,7 @@ const AdminCategoryPage = () => {
 
         <Link
           href="/admin"
-          className={`flex items-center border rounded-4 p-1 w-full max-w-[140px] text-20 hover:italic mt-auto mb-3 mr-3 ${
+          className={`flex items-center border border-[#748D93] shadow-[#748D93] shadow-right rounded-4 p-1 w-full max-w-[140px] text-20 hover:italic mt-auto mb-3 mr-3 ${
             router.pathname === "/admin"
           }`}
         >

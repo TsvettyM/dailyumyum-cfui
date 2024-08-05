@@ -28,6 +28,9 @@ const RecipeView = () => {
         });
     }
   }, [router.query.id]);
+
+  const productsArray = recipe?.products.split(",") || [];
+
   return (
     <section className="recipe__view py-20">
       <div className="container relative flex flex-col items-center justify-center">
@@ -75,18 +78,23 @@ const RecipeView = () => {
         </div>
 
         <div className="products--list flex flex-col justify-start items-start mt-4 md:my-10 mr-0 md:mr-auto">
-          <h2 className="text-28 sm:text-32 font-bold mb-5">
+          <h2 className="text-28 sm:text-32 font-bold mb-6">
             <span className="flex justify-center items-end">
               Needed Products
               <span className="relative bottom-3 ml-1 block h-2 md:h-2.5 w-2 md:w-2.5 rounded-2 bg-green" />
             </span>
           </h2>
 
-          <div className="ml-7">
-            <p className="flex justify-start items-start font-medium max-w-full lg:max-w-[1000px] mb-4">
-              <span className="relative flex-shrink-0 top-2 mr-2 block h-1.5 w-1.5 rounded-2 bg-green" />
-              {recipe?.products}
-            </p>
+          <div className="ml-4">
+            {productsArray.map((product, index) => (
+              <p
+                key={index}
+                className="flex justify-start items-start font-medium max-w-full lg:max-w-[1000px] mb-4"
+              >
+                <span className="relative flex-shrink-0 top-2 mr-2 block h-1.5 w-1.5 rounded-2 bg-green" />
+                {product.trim()}
+              </p>
+            ))}
           </div>
         </div>
       </div>

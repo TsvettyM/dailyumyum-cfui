@@ -1,8 +1,27 @@
 import CommonButton from "@/features/common/components/CommonButton";
 import IconBGAbout from "@/features/icons/components/IconBGAbout";
+import { IRecipeList } from "@/pages/admin/recipes";
+import axios from "axios";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const HomepageAbout = () => {
+  const [beforeLatestRecipe, setBeforeLatestRecipe] =
+    useState<IRecipeList | null>(null);
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/recipes")
+      .then((res) => {
+        setBeforeLatestRecipe(res.data[res.data.length - 2]);
+      })
+      .catch((err) => {
+        setError("There was an error fetching the latest recipe.");
+        console.log(err);
+      });
+  }, []);
+
   return (
     <section className="homepage__section--about flex overflow-hidden py-10 md:py-20 px-0 md:px-20">
       <div className="container flex flex-col-reverse md:flex-row justify-center items-center relative">
@@ -10,8 +29,8 @@ const HomepageAbout = () => {
           <IconBGAbout className="absolute w-[520px] h-[440px] md:h-[480px] md:w-[570px] lg:h-[500px] lg:w-[580px] -left-[155px] md:-left-[165px] lg:-left-[150px] -top-[60px] md:-top-[60px] lg:-top-14" />
 
           <div className="flex flex-col justify-center items-center relative">
-            <p className="text-28 text-green text-center font-bold mb-5">
-              Chipi Chipi
+            <p className="text-28 text-green text-center font-bold mb-5 line-clamp-1 max-w-[250px]">
+              {beforeLatestRecipe?.title || "Loading..."}
             </p>
 
             <div className="relative h-[150px] md:h-[180px] lg:h-[200px] w-[180px] md:w-[210px] lg:w-[240px] mb-11">
@@ -25,7 +44,7 @@ const HomepageAbout = () => {
 
             <CommonButton
               type="button"
-              href="/recipe/ChipiChipi"
+              href={`/recipe/${beforeLatestRecipe?.id || "#"}`}
               style="border"
               title="Get this recipe"
               className="w-[160px] md:w-[180px] lg:w-[193px]"

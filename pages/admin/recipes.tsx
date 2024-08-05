@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import IconClose from "@/features/icons/components/IconClose";
 import IconLogOut from "@/features/icons/components/IconLogOut";
 import IconView from "@/features/icons/components/IconView";
+import IconSort from "@/features/icons/components/IconSort";
 
 export interface IRecipeList {
   id: number;
@@ -21,6 +22,10 @@ export interface IRecipeList {
 const AdminRecipesPage = () => {
   const [data, setData] = useState<IRecipeList[]>([]);
   const [showMessage, setShowMessage] = useState("");
+  const [isSort, setIsSorted] = useState<{ key: string; direction: string }>({
+    key: "id",
+    direction: "asc",
+  });
   const router = useRouter();
 
   useEffect(() => {
@@ -49,6 +54,21 @@ const AdminRecipesPage = () => {
         console.error("There was an error deleting the recipe!", error);
       });
   };
+
+  function handleSort(key: string) {
+    let direction = "asc";
+    if (isSort.key === key && isSort.direction === "asc") {
+      direction = "desc";
+    }
+
+    const sortedData = [...data].sort((a: any, b: any) => {
+      if (a[key] < b[key]) return direction === "asc" ? -1 : 1;
+      if (a[key] > b[key]) return direction === "asc" ? 1 : -1;
+      return 0;
+    });
+    setData(sortedData);
+    setIsSorted({ key, direction });
+  }
 
   return (
     <div className="admin__recipes-page flex h-full bg-[#EFF9F5]">
@@ -105,9 +125,57 @@ const AdminRecipesPage = () => {
         )}
 
         <div className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 pt-10 pb-5 text-20 font-bold px-3">
-          <p>Id</p>
-          <p>Name</p>
-          <p>Category</p>
+          <p className="flex items-center">
+            Id
+            <button
+              onClick={() => handleSort("id")}
+              className="flex items-center ml-1.5"
+            >
+              <IconSort
+                className={`w-6 h-6 transition-transform ${
+                  isSort.key === "id" && isSort.direction === "asc"
+                    ? "rotate-180 stroke-black"
+                    : isSort.key === "id" && isSort.direction === "desc"
+                    ? "rotate-0 stroke-green"
+                    : "stroke-black"
+                }`}
+              />
+            </button>
+          </p>
+          <p className="flex items-center">
+            Name
+            <button
+              onClick={() => handleSort("title")}
+              className="flex items-center ml-1.5"
+            >
+              <IconSort
+                className={`w-6 h-6 transition-transform ${
+                  isSort.key === "title" && isSort.direction === "asc"
+                    ? "rotate-180 stroke-black"
+                    : isSort.key === "title" && isSort.direction === "desc"
+                    ? "rotate-0 stroke-green"
+                    : "stroke-black"
+                }`}
+              />
+            </button>
+          </p>
+          <p className="flex items-center">
+            Category
+            <button
+              onClick={() => handleSort("category")}
+              className="flex items-center ml-1.5"
+            >
+              <IconSort
+                className={`w-6 h-6 transition-transform ${
+                  isSort.key === "category" && isSort.direction === "asc"
+                    ? "rotate-180 stroke-black"
+                    : isSort.key === "category" && isSort.direction === "desc"
+                    ? "rotate-0 stroke-green"
+                    : "stroke-black"
+                }`}
+              />
+            </button>
+          </p>
           <p>Products</p>
           <p>Description</p>
           <p>Action</p>

@@ -113,6 +113,7 @@ const AdminRecipesPage = () => {
                 />
               </button>
             </p>
+
             <p className="flex items-center">
               Name
               <button
@@ -130,6 +131,7 @@ const AdminRecipesPage = () => {
                 />
               </button>
             </p>
+
             <p className="flex items-center">
               Category
               <button
@@ -147,8 +149,11 @@ const AdminRecipesPage = () => {
                 />
               </button>
             </p>
+
             <p>Products</p>
+
             <p>Description</p>
+
             <p>Action</p>
           </div>
 

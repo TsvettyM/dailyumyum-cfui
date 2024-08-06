@@ -35,7 +35,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
       )}
     >
       <div
-        className={classNames("relative flex flex-col", {
+        className={classNames("image__card relative flex flex-col", {
           "h-[180px] w-[210px]": size === "big",
           "h-[100px] w-[120px]": size === "small",
           "-top-10 -mb-5": size === "big",
@@ -44,6 +44,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
       >
         <Image src="/images/intro-img.png" alt="" fill draggable={false} />
       </div>
+
       <button type="button" className="absolute left-4 top-3">
         <IconLiked
           className={classNames({
@@ -52,6 +53,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
           })}
         />
       </button>
+
       <button type="button" className="absolute right-4 top-3">
         <IconShare
           className={classNames({
@@ -60,6 +62,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
           })}
         />
       </button>
+
       <h4
         className={classNames(
           "flex font-bold text-green text-center max-w-[120px]",
@@ -71,12 +74,14 @@ const CommonCard = ({ recipe, size }: IProps) => {
       >
         {truncatedTitle}
       </h4>
+
       <hr
         className={classNames("w-full rounded-10 text-[#AFACAC]", {
           "mt-10 mb-5": size === "big",
           "mt-2 mb-2": size === "small",
         })}
       />
+
       <p
         className={classNames("flex font-medium text-black", {
           "text-16": size === "big",
@@ -87,6 +92,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
       >
         {truncatedDescription}
       </p>
+
       {/* <div
         className={classNames("flex items-center w-full justify-between", {
           "my-5": size === "big",

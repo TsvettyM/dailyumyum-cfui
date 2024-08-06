@@ -7,6 +7,7 @@ import classNames from "classnames";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CommonDropdownButton from "./CommonDropDownButton";
+import CommonNavBarMobileMenu from "./CommonNavBarMobileMenu";
 
 export interface ICategoryListItem {
   id: string;
@@ -41,7 +42,7 @@ const CommonHeader = () => {
   return (
     <header>
       <div className="container flex items-center justify-center py-4">
-        <IconLogo className="mr-auto md:mr-8 h-11 w-[200px]" />
+        <IconLogo className="mr-auto md:mr-8 h-11 w-[150px] s:w-[200px]" />
 
         <nav className="hidden gap-8 font-medium mr-auto md:flex">
           <Link
@@ -88,10 +89,10 @@ const CommonHeader = () => {
 
         {router.pathname === "/recipes" && categories.length > 0 ? (
           <CommonDropdownButton
-            className="ml-auto mr-5"
+            className="relative ml-auto mr-5 bg-[#DCECEA] rounded-full"
             onClick={handleOnClick}
             title={
-              <p className="flex">
+              <p className="flex text-14 s:text-16">
                 All
                 <span className="flex items-center text-gray-500 ml-1">
                   ({categories.length})
@@ -102,14 +103,15 @@ const CommonHeader = () => {
           />
         ) : null}
 
-        <button
+        <CommonNavBarMobileMenu />
+        {/* <button
           type="button"
           className={classNames("md:hidden", {
             "ml-auto": router.pathname !== "/recipes",
           })}
         >
           <IconMobileMenu className="w-6 h-4" />
-        </button>
+        </button> */}
       </div>
     </header>
   );

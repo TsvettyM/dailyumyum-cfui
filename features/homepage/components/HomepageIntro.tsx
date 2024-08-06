@@ -28,11 +28,11 @@ const HomepageIntro = () => {
           <h1 className="text-36 md:text-48 font-bold text-black lg:text-64">
             <span className="flex items-end justify-center md:justify-start">
               Daily recipes
-              <span className="relative bottom-6 ml-1 block h-2.5 w-2.5 rounded-2 bg-green" />
+              <span className="relative bottom-4 md:bottom-5 lg:bottom-6 ml-1 block h-2 md:h-2.5 w-2 md:w-2.5 rounded-2 bg-green" />
             </span>
             <span className="flex items-end justify-center md:justify-start">
               Daily yum
-              <span className="relative bottom-6 ml-1 block h-2.5 w-2.5 rounded-2 bg-green" />
+              <span className="relative bottom-4 md:bottom-5 lg:bottom-6 ml-1 block h-2 md:h-2.5 w-2 md:w-2.5 rounded-2 bg-green" />
             </span>
           </h1>
           <p className="mb-10 mt-5 text-center text-16 font-medium text-black md:max-w-[330px] md:text-start md:text-20 lg:max-w-[480px]">

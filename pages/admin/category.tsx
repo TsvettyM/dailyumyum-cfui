@@ -59,84 +59,90 @@ const AdminCategoryPage = () => {
     <div className="admin__category-page flex h-full bg-[#EFF9F5]">
       <AdminNav />
 
-      <div className="mx-20 w-full mt-5">
+      <div className="mx-5 sm:mx-10 md:mx-20 w-full mt-10 overflow-x-auto">
         <AdminHeader title="Category" />
 
-        <div className="grid grid-cols-[1fr_1fr_1fr_150px] gap-5 pt-10 pb-5 text-20 font-bold px-3">
-          <p className="flex items-center">
-            Id
-            <button
-              onClick={() => handleSort("id")}
-              className="flex items-center ml-1.5"
-            >
-              <IconSort
-                className={`w-6 h-6 transition-transform ${
-                  isSort.key === "id" && isSort.direction === "asc"
-                    ? "rotate-180 stroke-black"
-                    : isSort.key === "id" && isSort.direction === "desc"
-                    ? "rotate-0 stroke-green"
-                    : "stroke-black"
-                }`}
-              />
-            </button>
-          </p>
-          <p className="flex items-center">
-            Name
-            <button
-              onClick={() => handleSort("title")}
-              className="flex items-center ml-1.5"
-            >
-              <IconSort
-                className={`w-6 h-6 transition-transform ${
-                  isSort.key === "title" && isSort.direction === "asc"
-                    ? "rotate-180 stroke-black"
-                    : isSort.key === "title" && isSort.direction === "desc"
-                    ? "rotate-0 stroke-green"
-                    : "stroke-black"
-                }`}
-              />
-            </button>
-          </p>
-          <p>Description</p>
-          <p>Action</p>
-        </div>
-        <ul className="shadow-spread bg-white rounded-8">
-          {data.map((item) => (
-            <div
-              key={item.id}
-              className="grid grid-cols-[1fr_1fr_1fr_150px] gap-5 w-full shadow-bottom last-of-type:rounded-br-8 last-of-type:rounded-bl-8 p-3"
-            >
-              <p>{item.id}</p>
-              <p>{item.title}</p>
-              <p className="line-clamp-1">{item.description}</p>
+        <div className="outline-none rounded-8 overflow-x-auto w-full">
+          <div className="grid grid-cols-[1fr_1fr_1fr_150px] gap-5 pt-5 sm:pt-10 pb-5 text-20 font-bold px-3 min-w-[1200px]">
+            <p className="flex items-center">
+              Id
+              <button
+                onClick={() => handleSort("id")}
+                className="flex items-center ml-1.5"
+              >
+                <IconSort
+                  className={`w-6 h-6 transition-transform ${
+                    isSort.key === "id" && isSort.direction === "asc"
+                      ? "rotate-180 stroke-black"
+                      : isSort.key === "id" && isSort.direction === "desc"
+                      ? "rotate-0 stroke-green"
+                      : "stroke-black"
+                  }`}
+                />
+              </button>
+            </p>
 
-              <div className="flex items-start space-x-4">
-                <Link
-                  href={{
-                    pathname: "/admin/view/recipes",
-                    query: { id: item.id.toString() },
-                  }}
-                  className="flex items-center"
-                >
-                  <IconView className="w-6 h-6" />
-                </Link>
+            <p className="flex items-center">
+              Name
+              <button
+                onClick={() => handleSort("title")}
+                className="flex items-center ml-1.5"
+              >
+                <IconSort
+                  className={`w-6 h-6 transition-transform ${
+                    isSort.key === "title" && isSort.direction === "asc"
+                      ? "rotate-180 stroke-black"
+                      : isSort.key === "title" && isSort.direction === "desc"
+                      ? "rotate-0 stroke-green"
+                      : "stroke-black"
+                  }`}
+                />
+              </button>
+            </p>
 
-                <Link
-                  href={{
-                    pathname: "/admin/edit/category",
-                    query: { id: item.id.toString() },
-                  }}
-                  className="flex items-center"
-                >
-                  <IconEdit className="mx-2 w-6 h-6" />
-                </Link>
-                <button type="button" onClick={() => handleDelete(item.id)}>
-                  <IconDelete className="w-6 h-6" />
-                </button>
+            <p>Description</p>
+
+            <p>Action</p>
+          </div>
+
+          <ul className="shadow-spread bg-white rounded-8 min-w-[1200px]">
+            {data.map((item) => (
+              <div
+                key={item.id}
+                className="grid grid-cols-[1fr_1fr_1fr_150px] gap-5 w-full shadow-bottom last-of-type:rounded-br-8 last-of-type:rounded-bl-8 p-3"
+              >
+                <p>{item.id}</p>
+                <p className="line-clamp-1">{item.title}</p>
+                <p className="line-clamp-1">{item.description}</p>
+
+                <div className="flex items-start space-x-4">
+                  <Link
+                    href={{
+                      pathname: "/admin/view/recipes",
+                      query: { id: item.id.toString() },
+                    }}
+                    className="flex items-center"
+                  >
+                    <IconView className="w-6 h-6" />
+                  </Link>
+
+                  <Link
+                    href={{
+                      pathname: "/admin/edit/category",
+                      query: { id: item.id.toString() },
+                    }}
+                    className="flex items-center"
+                  >
+                    <IconEdit className="mx-2 w-6 h-6" />
+                  </Link>
+                  <button type="button" onClick={() => handleDelete(item.id)}>
+                    <IconDelete className="w-6 h-6" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

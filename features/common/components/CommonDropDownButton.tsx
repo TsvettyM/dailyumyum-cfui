@@ -26,14 +26,17 @@ const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
 
   return (
     <div
-      className={classNames("common-dropDown-button relative", {
-        [className ?? ""]: className,
-      })}
+      className={classNames(
+        "common-dropDown-button relative bg-[#DCECEA] z-20",
+        {
+          [className ?? ""]: className,
+        }
+      )}
     >
       <button
         type="button"
         onClick={toggleDropdown}
-        className="flex items-center justify-between bg-transparent text-black border-black border px-4 py-2 h-9 md:h-10 rounded-full"
+        className="flex items-center justify-between bg-transparent text-black border-black border px-2 s:px-4 py-1 s:py-2 h-8 s:h-9 md:h-10 rounded-full"
       >
         {title}
         <IconDropMenuArrow
@@ -43,12 +46,12 @@ const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
         />
       </button>
       {isOpen && (
-        <div className="absolute flex flex-col right-0 mt-1 w-full bg-white border border-black rounded-10 shadow-bottom shadow-black/40">
+        <div className="absolute flex flex-col right-0 mt-1 w-full bg-[#DCECEA] border border-black rounded-10 shadow-bottom shadow-black/40">
           {items.map((item, index) => (
             <button
               type="button"
               key={index}
-              className="text-left p-2 hover:text-gray"
+              className="text-left text-14 s:text-16 py-1 s:py-2 pl-2 s:pl-4 hover:text-white hover:bg-[#748D93] last-of-type:hover:rounded-b-8 first-of-type:hover:rounded-t-8"
               onClick={() => handleOnClick(item)}
             >
               {item}

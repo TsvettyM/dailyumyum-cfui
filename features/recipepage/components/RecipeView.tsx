@@ -34,7 +34,7 @@ const RecipeView = () => {
   return (
     <section className="recipe__view py-20">
       <div className="container relative flex flex-col items-center justify-center">
-        <div className="recipe flex flex-col-reverse md:flex-row justify-center items-center w-full mb-8 md:mb-20">
+        <div className="recipe flex flex-col-reverse md:flex-row justify-center items-center h-full w-full mb-8 md:mb-20">
           <div className="left flex flex-col justify-center items-center md:justify-start md:items-start mr-0 lx:mr-auto mt-32 md:mt-0">
             <h1 className="text-36 md:text-[60px] lg:text-64 font-bold mb-3">
               <span className="flex items-end">
@@ -77,7 +77,7 @@ const RecipeView = () => {
           </div>
         </div>
 
-        <div className="products--list flex flex-col justify-start items-start mt-4 md:my-10 mr-0 md:mr-auto">
+        <div className="products--list flex flex-col justify-center sm:justify-start items-center sm:items-start mt-4 md:my-10 mr-0 md:mr-auto h-full w-full">
           <h2 className="text-28 sm:text-32 font-bold mb-6">
             <span className="flex justify-center items-end">
               Needed Products
@@ -85,7 +85,7 @@ const RecipeView = () => {
             </span>
           </h2>
 
-          <div className="ml-4">
+          <div className="ml-0 sm:ml-4">
             {productsArray.map((product, index) => (
               <p
                 key={index}

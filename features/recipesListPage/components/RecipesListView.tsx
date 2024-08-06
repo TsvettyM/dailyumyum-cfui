@@ -45,13 +45,13 @@ const RecipesListView = () => {
   };
 
   return (
-    <section className="recipes__list-view">
-      <div className="container">
+    <section className="recipes__list-view py-5">
+      <div className="container flex flex-col items-center md:items-start justify-center md:justify-start">
         {error && <p className="text-red">{error}</p>}
 
         {filteredGroupedRecipes().map((group) => (
           <ul key={group.category}>
-            <h2 className="text-28 text-gray-500 font-bold mb-10">
+            <h2 className="text-24 md:text-28 text-center sm:text-start text-gray-500 font-bold mb-10">
               {group.category} ({group.recipes.length})
             </h2>
 

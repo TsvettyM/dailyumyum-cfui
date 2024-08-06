@@ -1,14 +1,13 @@
 import AdminHeader from "@/features/admin/AdminHeader";
 import IconDelete from "@/features/icons/components/IconDelete";
 import IconEdit from "@/features/icons/components/IconEdit";
-import IconLogo from "@/features/icons/components/IconLogo";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import IconLogOut from "@/features/icons/components/IconLogOut";
 import IconView from "@/features/icons/components/IconView";
 import IconSort from "@/features/icons/components/IconSort";
+import AdminNav from "./sidenav";
 
 interface ICategory {
   id: number;
@@ -58,36 +57,7 @@ const AdminCategoryPage = () => {
 
   return (
     <div className="admin__category-page flex h-full bg-[#EFF9F5]">
-      <nav className="flex flex-col bg-[#DCECEA] text-black font-semibold h-full w-[250px] pt-4 pl-3 shadow-right shadow-[#889FA5]">
-        <IconLogo className="h-10 w-[160px] mb-3" />
-
-        <Link
-          href="/admin/recipes"
-          className={`mb-3 hover:text-black/20 text-24 hover:italic ${
-            router.pathname === "/admin/recipes" ? "underline" : ""
-          }`}
-        >
-          Recipes
-        </Link>
-        <Link
-          href="/admin/category"
-          className={`hover:text-black/20 text-24 hover:italic ${
-            router.pathname === "/admin/category" ? "underline" : ""
-          }`}
-        >
-          Category
-        </Link>
-
-        <Link
-          href="/admin"
-          className={`flex items-center border border-[#748D93] shadow-[#748D93] shadow-right rounded-4 p-1 w-full max-w-[140px] text-20 hover:italic mt-auto mb-3 mr-3 ${
-            router.pathname === "/admin"
-          }`}
-        >
-          <IconLogOut className="mx-2" />
-          Log Out
-        </Link>
-      </nav>
+      <AdminNav />
 
       <div className="mx-20 w-full mt-5">
         <AdminHeader title="Category" />

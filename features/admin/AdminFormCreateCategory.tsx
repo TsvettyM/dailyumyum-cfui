@@ -84,7 +84,7 @@ const AdminFormCreateCategory = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="admin__form-create--category flex flex-col relative w-[500px] bg-[#DCECEA] rounded-8 p-5 shadow-[#748D93] shadow-bottom-right"
+      className="admin__form-create--category flex flex-col relative w-full bg-[#DCECEA] rounded-8 p-5 shadow-[#748D93] shadow-bottom-right"
     >
       <h1 className="font-semibold text-black text-32 text-center mt-2 mb-6">
         {router.query.id ? "Edit your category" : "Let's create your category"}

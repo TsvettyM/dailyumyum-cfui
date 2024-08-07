@@ -75,11 +75,13 @@ const CommonInputSelect = ({
 
       <div className="relative flex items-center border text-black/40 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer">
         <button
+          type="button"
           className="absolute left-0 top-0 w-full h-full"
           onClick={handleOpen}
         />
-        {selectedData.length > 0
-          ? selectedData.map((selectedItem) => (
+        {selectedData.length > 0 ? (
+          <>
+            {selectedData.slice(0, 2).map((selectedItem) => (
               <span
                 className="flex items-center mr-2 last-of-type:mr-0 justify-center text-left text-black bg-[#748D93]/20 py-1 px-2.5 rounded-8"
                 key={selectedItem}
@@ -93,8 +95,19 @@ const CommonInputSelect = ({
                   <IconClose className="ml-2" />
                 </button>
               </span>
-            ))
-          : "Choose a category"}
+            ))}
+            {selectedData.length > 2 ? (
+              <button
+                type="button"
+                className="common__btn--select relative text-center text-black font-bold text-18"
+              >
+                + {selectedData.length - 2}
+              </button>
+            ) : null}
+          </>
+        ) : (
+          "Choose a category"
+        )}
 
         {selectedData.length > 0 ? (
           <button type="button" onClick={() => setSelectedData([])}></button>

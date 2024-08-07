@@ -24,10 +24,16 @@ const RecipesListView = () => {
     const grouped: { [key: string]: IRecipeList[] } = {};
 
     recipes.forEach((recipe) => {
-      if (!grouped[recipe.category]) {
-        grouped[recipe.category] = [];
-      }
-      grouped[recipe.category].push(recipe);
+      const categories = recipe.category
+        .split(",")
+        .map((category) => category.trim());
+
+      categories.forEach((category) => {
+        if (!grouped[category]) {
+          grouped[category] = [];
+        }
+        grouped[category].push(recipe);
+      });
     });
 
     return Object.entries(grouped).map(([category, recipes]) => ({

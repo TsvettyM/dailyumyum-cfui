@@ -6,6 +6,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CommonDropdownButton from "./CommonDropDownButton";
 import CommonNavBarMobileMenu from "./CommonNavBarMobileMenu";
+import IRecipe from "@/features/homepage/interfaces/recipe.interface";
+import { IRecipeList } from "@/pages/admin/recipes";
 
 export interface ICategoryListItem {
   id: string;
@@ -25,31 +27,22 @@ const CommonHeader = () => {
   const router = useRouter();
   const [categories, setCategories] = useState<string[]>([]);
   const [error, setError] = useState("");
-  const [recipes, setRecipes] = useState<IRecipeListitem[]>([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/category")
-      .then(async (res) => {
-        const categoryList = (res.data as ICategoryListItem[]).map(
+      .then((categoryRes) => {
+        const categoryList = (categoryRes.data as ICategoryListItem[]).map(
           (item) => item.title
         );
-        const filteredCategories = [];
+        setCategories(categoryList);
 
-        for (const category of categoryList) {
-          const recipeRes = await axios.get(
-            `http://localhost:3001/recipes?category=${category}`
-          );
-          if (recipeRes.data.length > 0) {
-            filteredCategories.push(category);
-          }
-        }
-
-        setCategories(filteredCategories);
+        return axios.get("http://localhost:3001/recipes");
       })
+
       .catch((err) => {
-        setError("There was an error fetching the categories.");
-        console.log(err);
+        setError("There was an error fetching data.");
+        console.error(err);
       });
   }, []);
 

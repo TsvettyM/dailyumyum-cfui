@@ -25,7 +25,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
 
   return (
     <Link
-      href={`/recipe/${recipe.title}`}
+      href={`/recipe/${recipe.id}`}
       className={classNames(
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom duration-200 hover:-translate-y-2",
         {

@@ -4,7 +4,6 @@ import IconLogoFooter from "@/features/icons/components/IconLogoFooter";
 import IconTwitter from "@/features/icons/components/IconTwitter";
 import IconYoutube from "@/features/icons/components/IconYoutube";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
 import CommonInput from "./CommonInput";
 import CommonTextArea from "./CommonTextArea";
 
@@ -14,7 +13,7 @@ const CommonFooter = () => {
   }
 
   return (
-    <footer className="flex bg-green pb-5 pt-8">
+    <footer className="flex bg-green pb-5 pt-8 mt-auto">
       <div className="container">
         <div className="top flex flex-col md:flex-row md:justify-between">
           <div className="apps flex flex-col justify-center items-center md:items-start">

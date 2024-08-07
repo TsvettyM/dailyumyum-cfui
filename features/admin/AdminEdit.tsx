@@ -6,7 +6,7 @@ const EditForm = () => {
   const router = useRouter();
 
   return (
-    <div className="edit__recipe-page">
+    <div className="edit__recipe-page w-full max-w-[500px] px-5">
       {router.asPath.includes("recipes") ? <AdminFormCreateRecipe /> : null}
       {router.asPath.includes("category") ? <AdminFormCreateCategory /> : null}
     </div>

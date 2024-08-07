@@ -16,7 +16,7 @@ const AdminHeader = ({ title }: IProps) => {
         type="button"
         title="Create"
         icon={<IconAdd className="mr-3" />}
-        className="ml-auto text-white border-none h-10 w-[150px] sm:!w-[200px] !rounded-8 bg-[#748D93]"
+        className="ml-auto text-white border-none h-10 !w-[150px] sm:!w-[200px] !rounded-8 bg-[#748D93]"
       />
     </div>
   );

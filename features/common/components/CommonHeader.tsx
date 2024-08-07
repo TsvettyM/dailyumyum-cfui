@@ -2,8 +2,6 @@ import IconLogo from "@/features/icons/components/IconLogo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import CommonButton from "./CommonButton";
-import IconMobileMenu from "@/features/icons/components/IconMobileMenu";
-import classNames from "classnames";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CommonDropdownButton from "./CommonDropDownButton";
@@ -15,19 +13,39 @@ export interface ICategoryListItem {
   description: string;
 }
 
+export interface IRecipeListitem {
+  id: string;
+  title: string;
+  category: string;
+  products: string;
+  description: string;
+}
+
 const CommonHeader = () => {
   const router = useRouter();
   const [categories, setCategories] = useState<string[]>([]);
   const [error, setError] = useState("");
+  const [recipes, setRecipes] = useState<IRecipeListitem[]>([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/category")
-      .then((res) => {
+      .then(async (res) => {
         const categoryList = (res.data as ICategoryListItem[]).map(
           (item) => item.title
         );
-        setCategories(categoryList);
+        const filteredCategories = [];
+
+        for (const category of categoryList) {
+          const recipeRes = await axios.get(
+            `http://localhost:3001/recipes?category=${category}`
+          );
+          if (recipeRes.data.length > 0) {
+            filteredCategories.push(category);
+          }
+        }
+
+        setCategories(filteredCategories);
       })
       .catch((err) => {
         setError("There was an error fetching the categories.");
@@ -104,14 +122,6 @@ const CommonHeader = () => {
         ) : null}
 
         <CommonNavBarMobileMenu />
-        {/* <button
-          type="button"
-          className={classNames("md:hidden", {
-            "ml-auto": router.pathname !== "/recipes",
-          })}
-        >
-          <IconMobileMenu className="w-6 h-4" />
-        </button> */}
       </div>
     </header>
   );

@@ -17,11 +17,10 @@ const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
   };
 
   function handleOnClick(arg: string) {
-    if (!onClick) {
-      return;
+    if (onClick) {
+      onClick(arg);
     }
-
-    onClick(arg);
+    setIsOpen(false);
   }
 
   return (
@@ -45,6 +44,7 @@ const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
           })}
         />
       </button>
+
       {isOpen && (
         <div className="absolute flex flex-col right-0 mt-1 w-full bg-[#DCECEA] border border-black rounded-10 shadow-bottom shadow-black/40">
           {items.map((item, index) => (

@@ -3,7 +3,7 @@ import IconMobileMenu from "@/features/icons/components/IconMobileMenu";
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CommonNavBarMobileMenu = () => {
   const router = useRouter();
@@ -12,6 +12,18 @@ const CommonNavBarMobileMenu = () => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsMenuOpen(false);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <div className="common__nav-bar--MM flex flex-col h-full z-20">
@@ -29,8 +41,8 @@ const CommonNavBarMobileMenu = () => {
         className={classNames(
           "md:hidden flex flex-col fixed right-0 top-0 h-full shadow-left shadow-[#889FA5] bg-[#DCECEA] w-[200px] sm:w-[250px] pt-4 px-3 lg:pl-3 duration-200 font-medium mr-auto",
           {
-            "translate-x-full": isMenuOpen,
-            "-translate-x-0": !isMenuOpen,
+            "translate-x-full": !isMenuOpen,
+            "translate-x-0": isMenuOpen,
           }
         )}
       >

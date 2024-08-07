@@ -4,9 +4,10 @@ import Image from "next/image";
 import classNames from "classnames";
 import Link from "next/link";
 import { IRecipeList } from "@/pages/admin/recipes";
+import IRecipe from "@/features/homepage/interfaces/recipe.interface";
 
 interface IProps {
-  recipe: IRecipeList;
+  recipe: IRecipe | IRecipeList;
   size: "big" | "small";
 }
 
@@ -24,7 +25,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
 
   return (
     <Link
-      href={`/recipe/${recipe.id}`}
+      href={`/recipe/${recipe.title}`}
       className={classNames(
         "common__card w-full relative flex flex-col items-center justify-center rounded-10 text-center shadow-bottom duration-200 hover:-translate-y-2",
         {

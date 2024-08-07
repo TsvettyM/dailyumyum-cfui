@@ -53,6 +53,7 @@ const CommonInputSelect = ({
     }
     setSelectedData(updatedData);
     setItem(updatedData.join(","));
+    setIsOpenMenu(false);
   }
 
   function handleRemove(removedItem: string) {
@@ -72,14 +73,15 @@ const CommonInputSelect = ({
     >
       <CommonLabel htmlFor="" style="black" text={label} />
 
-      <div
-        className="relative flex items-center border text-black/40 space-x-2 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer"
-        onClick={handleOpen}
-      >
+      <div className="relative flex items-center border text-black/40 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer">
+        <button
+          className="absolute left-0 top-0 w-full h-full"
+          onClick={handleOpen}
+        />
         {selectedData.length > 0
           ? selectedData.map((selectedItem) => (
               <span
-                className="flex items-center justify-center text-left text-black bg-[#748D93]/20 py-1 px-2.5 rounded-8"
+                className="flex items-center mr-2 last-of-type:mr-0 justify-center text-left text-black bg-[#748D93]/20 py-1 px-2.5 rounded-8"
                 key={selectedItem}
               >
                 {selectedItem}

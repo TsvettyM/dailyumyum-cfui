@@ -70,6 +70,10 @@ const AdminFormCreateRecipe = () => {
       newValidationErrors.category = "You must choose category first!";
     }
 
+    if (description === "") {
+      newValidationErrors.description = "You must write description first!";
+    }
+
     setValidationErrors(newValidationErrors);
 
     if (

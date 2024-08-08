@@ -3,7 +3,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Tteokbokki",
       description:
         "Tteokbokki is one of the most popular Korean street foods in Korea.",
@@ -15,7 +15,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Tteokbokki",
       description:
         "Tteokbokki is one of the most popular Korean street foods in Korea.",
@@ -27,7 +27,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Tteokbokki",
       description:
         "Tteokbokki is one of the most popular Korean street foods in Korea.",
@@ -39,7 +39,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Bibimbap",
       description:
         "Bibimbap is a traditional Korean rice dish with mixed vegetables and beef.",
@@ -51,7 +51,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Kimchi",
       description:
         "Kimchi is a famous Korean side dish made of fermented vegetables.",
@@ -63,7 +63,7 @@ export default function handler(req, res) {
     {
       isLiked: true,
       share: "share",
-      image: "/images/intro-img.png",
+      image: "/images/recipe-card-img.png",
       title: "Kimchi",
       description:
         "Kimchi is a famous Korean side dish made of fermented vegetables.",

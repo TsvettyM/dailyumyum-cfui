@@ -51,16 +51,16 @@ const RecipeView = () => {
           <div className="right relative flex flex-col items-center justify-center ml-0 md:ml-auto">
             <IconRecipe className="absolute -right-24 sm:-right-20 -top-14 w-[380px] sm:w-[440px] lg:w-[488px]" />
 
-            <div className="relative -bottom-10 md:-bottom-6 lg:bottom-2 left-8 md:left-3 lg:left-8 h-[180px] sm:h-[200px] lg:h-[270px] w-[200px] sm:w-[270px] lg:w-[343px]">
+            <div className="relative -bottom-10 md:-bottom-6 lg:-bottom-6 left-4 md:left-3 lg:left-0 h-[180px] sm:h-[210px] lg:h-[250px] w-[200px] sm:w-[270px] lg:w-[290px]">
               <Image
-                src="/images/intro-img.png"
+                src="/images/recipe-card-img.png"
                 alt=""
                 fill
                 draggable={false}
               />
             </div>
 
-            <p className="flex flex-col items-center justify-center absolute -right-11 sm:right-3 lg:-right-6 -bottom-14 lg:bottom-11">
+            <p className="flex flex-col items-center justify-center absolute -right-11 sm:right-3 lg:-right-6 -bottom-14 lg:-bottom-5">
               <IconTime className="w-[23px] h-[22px] lg:right-5 -top-10" />
               20 min
             </p>
@@ -70,7 +70,7 @@ const RecipeView = () => {
               550
             </p>
 
-            <p className="flex flex-col items-center justify-center absolute top-14 sm:top-8 -left-7 sm:-left-6 lg:left-3">
+            <p className="flex flex-col items-center justify-center absolute top-14 sm:top-8 -left-7 sm:-left-6 lg:-left-12">
               <IconRating className="w-[23px] h-[22px]" />
               4.5
             </p>

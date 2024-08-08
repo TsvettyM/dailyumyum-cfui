@@ -1,12 +1,10 @@
 import HomepageAbout from "./HomepageAbout";
 import HomepageIntro from "./HomepageIntro";
-import HomepagePopularRecipes from "./HomepagePopularRecipes";
 
 const HomepageView = () => {
   return (
-    <div>
+    <div className="homepage__view">
       <HomepageIntro />
-      {/* <HomepagePopularRecipes /> */}
       <HomepageAbout />
     </div>
   );

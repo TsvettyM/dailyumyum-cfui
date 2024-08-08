@@ -43,7 +43,12 @@ const CommonCard = ({ recipe, size }: IProps) => {
           "-top-2.5 mb-auto": size === "small",
         })}
       >
-        <Image src="/images/intro-img.png" alt="" fill draggable={false} />
+        <Image
+          src="/images/recipe-card-img.png"
+          alt=""
+          fill
+          draggable={false}
+        />
       </div>
 
       <button type="button" className="absolute left-4 top-3">

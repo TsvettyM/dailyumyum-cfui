@@ -1,28 +1,9 @@
 import CommonButton from "@/features/common/components/CommonButton";
-import IconBGIntro from "@/features/icons/components/IconBGIntro";
-import { IRecipeList } from "@/pages/admin/recipes";
-import axios from "axios";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import HomepageRecipe from "./HomepageRecipe";
 
 const HomepageIntro = () => {
-  const [latestRecipe, setLatestRecipe] = useState<IRecipeList | null>(null);
-  const [error, setError] = useState<string>("");
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/recipes")
-      .then((res) => {
-        setLatestRecipe(res.data[res.data.length - 1]);
-      })
-      .catch((err) => {
-        setError("There was an error fetching the latest recipe.");
-        console.log(err);
-      });
-  }, []);
-
   return (
-    <section className="homepage__section--intro overflow-hidden py-3 md:py-20">
+    <div className="homepage__intro overflow-hidden py-3 md:py-20">
       <div className="container relative flex flex-col items-center justify-center md:flex-row">
         <div className="left__side flex flex-col justify-center md:justify-start items-center md:items-start md:mr-auto">
           <h1 className="text-36 md:text-48 font-bold text-black lg:text-64">
@@ -49,27 +30,9 @@ const HomepageIntro = () => {
           />
         </div>
 
-        <div className="right__side relative mt-4 mr-0 lg:mr-20 flex flex-col items-center justify-center md:mt-0">
-          <IconBGIntro className="absolute -right-28 sm:-right-20 top-3 w-[420px] md:w-[450px] lg:w-[488px]" />
-
-          <p className="text-center text-28 font-bold text-green mb-0 mt-14 line-clamp-1 max-w-[250px]">
-            {latestRecipe?.title || "Loading..."}
-          </p>
-
-          <div className="relative mb-auto left-0 xs:left-1.5 s:left-2 sm:-left-2.5 h-[180px] md:h-[200px] lg:h-[236px] w-[190px] md:w-[240px] lg:w-[298px]">
-            <Image src="/images/intro-img.png" alt="" fill draggable={false} />
-          </div>
-
-          <CommonButton
-            type="button"
-            href={`/recipe/${latestRecipe?.id || "#"}`}
-            style="border"
-            title="Get this recipe"
-            className="mt-5 w-[155px] sm:w-[160px] md:w-[193px] lg:mt-4.5 bg-white relative -bottom-1 lg:-bottom-0 -right-1 sm:right-7 md:right-4 lg:right-1.5"
-          />
-        </div>
+        <HomepageRecipe className="mt-14" />
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -48,7 +48,7 @@ const CommonDropdownButton = ({
       >
         {title}
         <IconDropMenuArrow
-          className={classNames("ml-4 md:ml-10 duration-200", {
+          className={classNames("ml-4 md:ml-10 duration-200 flex-shrink-0", {
             "rotate-180": isOpen,
           })}
         />

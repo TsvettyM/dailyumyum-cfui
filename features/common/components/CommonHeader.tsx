@@ -103,16 +103,9 @@ const CommonHeader = () => {
         {router.pathname === "/recipes" && categories.length > 0 ? (
           <CommonDropdownButton
             className="relative ml-auto"
-            buttonClassName="w-[170px]"
+            buttonClassName="w-[145px]"
             onClick={handleOnClick}
-            title={
-              <p className="flex text-14 s:text-16">
-                {selectedCategory}
-                <span className="flex items-center text-gray-500 ml-1">
-                  ({categories.length})
-                </span>
-              </p>
-            }
+            title={<p className="flex text-14 s:text-16">{selectedCategory}</p>}
             items={["All", ...categories]}
           />
         ) : null}

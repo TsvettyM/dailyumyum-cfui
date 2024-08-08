@@ -147,6 +147,7 @@ const AdminFormCreateRecipe = () => {
         error={validationErrors.category}
         label="Category:"
         className="mb-6"
+        required
       />
 
       <CommonInput

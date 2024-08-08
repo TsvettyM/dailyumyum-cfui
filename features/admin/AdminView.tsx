@@ -40,7 +40,7 @@ const AdminView = () => {
   }
 
   return (
-    <div className="admin__view-page flex h-full w-full bg-[#EFF9F5] py-10">
+    <div className="admin__view-page flex h-full w-full bg-[#EFF9F5]">
       <AdminNav />
 
       <div className="flex items-center justify-center mx-10 md:mx-20 w-full mt-14 md:mt-20">

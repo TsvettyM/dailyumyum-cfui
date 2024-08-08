@@ -53,65 +53,63 @@ const CommonHeader = () => {
   }
 
   return (
-    <header>
-      <div className="container flex items-center justify-center py-4">
-        <IconLogo className="mr-auto md:mr-8 h-11 w-[150px] s:w-[200px]" />
+    <header className="container flex items-center justify-center py-4">
+      <IconLogo className="mr-auto md:mr-8 h-11 w-[150px] s:w-[200px]" />
 
-        <nav className="hidden gap-8 font-medium mr-auto md:flex">
-          <Link
-            href="/"
-            className={
-              router.pathname === "/"
-                ? "text-green"
-                : "opacity-50 hover:opacity-100"
-            }
-          >
-            Home
-          </Link>
-
-          <Link
-            href="/recipes"
-            className={
-              router.pathname === "/recipes"
-                ? "text-green"
-                : "opacity-50 hover:opacity-100"
-            }
-          >
-            Recipes
-          </Link>
-
-          <Link
-            href="/about"
-            className={
-              router.pathname === "/about"
-                ? "text-green"
-                : "opacity-50 hover:opacity-100"
-            }
-          >
-            About Us
-          </Link>
-        </nav>
-
-        <CommonButton
-          type="button"
+      <nav className="hidden gap-8 font-medium mr-auto md:flex">
+        <Link
           href="/"
-          title="Explore"
-          style="green"
-          className="hidden w-[115px] h-8"
+          className={
+            router.pathname === "/"
+              ? "text-green"
+              : "opacity-50 hover:opacity-100"
+          }
+        >
+          Home
+        </Link>
+
+        <Link
+          href="/recipes"
+          className={
+            router.pathname === "/recipes"
+              ? "text-green"
+              : "opacity-50 hover:opacity-100"
+          }
+        >
+          Recipes
+        </Link>
+
+        <Link
+          href="/about"
+          className={
+            router.pathname === "/about"
+              ? "text-green"
+              : "opacity-50 hover:opacity-100"
+          }
+        >
+          About Us
+        </Link>
+      </nav>
+
+      <CommonButton
+        type="button"
+        href="/"
+        title="Explore"
+        style="green"
+        className="hidden w-[115px] h-8"
+      />
+
+      {router.pathname === "/recipes" && categories.length > 0 ? (
+        <CommonDropdownButton
+          className="relative ml-auto mr-8"
+          buttonClassName="sm:w-[145px] w-[100px]"
+          onClick={handleOnClick}
+          title={<p className="flex text-14 s:text-16">{selectedCategory}</p>}
+          items={["All", ...categories]}
         />
+      ) : null}
 
-        {router.pathname === "/recipes" && categories.length > 0 ? (
-          <CommonDropdownButton
-            className="relative ml-auto"
-            buttonClassName="w-[145px]"
-            onClick={handleOnClick}
-            title={<p className="flex text-14 s:text-16">{selectedCategory}</p>}
-            items={["All", ...categories]}
-          />
-        ) : null}
-
-        <CommonNavBarMobileMenu />
-      </div>
+      <CommonNavBarMobileMenu />
     </header>
   );
 };

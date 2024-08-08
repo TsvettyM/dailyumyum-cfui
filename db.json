@@ -5,21 +5,20 @@
       "username": "admin",
       "password": "password123",
       "isAdmin": true
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "password123",
+      "isAdmin": false
     }
   ],
   "recipes": [
     {
-      "title": "Sandwich",
-      "category": "Russian,Mexican,Italian,Turkish,Arabian",
-      "products": "1 ham, 1 cheese..",
-      "description": "gsdghsdfhsdhs",
-      "id": "ida4d3dvi"
-    },
-    {
       "title": "xzxzx",
       "category": "Russian,Mexican",
       "products": "adadad",
-      "description": "sffafaf",
+      "description": "sffafafasfasf",
       "id": "id9vu506j"
     },
     {
@@ -63,6 +62,20 @@
       "category": "Turkish",
       "products": "hdfhhfdfdg",
       "description": "hfhdhdf"
+    },
+    {
+      "id": "ido4whbil",
+      "title": "asfas",
+      "category": "Italian",
+      "products": "asfasf",
+      "description": "asfasf"
+    },
+    {
+      "id": "id8p821ia",
+      "title": "asfa",
+      "category": "Russiana",
+      "products": "asfas",
+      "description": "asfas"
     }
   ],
   "category": [
@@ -77,12 +90,7 @@
       "id": "idrqu0ey9"
     },
     {
-      "title": "German",
-      "description": "",
-      "id": "idpfh6fja"
-    },
-    {
-      "title": "Russian",
+      "title": "Russiana",
       "description": "",
       "id": "id50vwp0x"
     },

@@ -69,7 +69,7 @@ const RecipesListView = () => {
         {filteredGroupedRecipes()
           .sort((a, b) => a.category.localeCompare(b.category))
           .map((group) => (
-            <ul key={group.category}>
+            <ul key={group.category} className="w-full">
               <h2 className="text-24 md:text-28 text-center sm:text-start text-gray-500 font-bold mb-10">
                 {group.category || router.query.category} (
                 {group.recipes.length})

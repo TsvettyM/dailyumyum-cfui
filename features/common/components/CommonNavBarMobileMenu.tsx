@@ -26,14 +26,15 @@ const CommonNavBarMobileMenu = () => {
   }, [router.events]);
 
   return (
-    <div className="common__nav-bar--MM flex flex-col h-full z-20">
-      <button
-        type="button"
-        className={classNames("absolute top-8 right-3 md:hidden", {
+    <div
+      className={classNames(
+        "common__nav-bar--MM flex flex-col z-20 md:hidden",
+        {
           "ml-auto": router.pathname !== "/recipes",
-        })}
-        onClick={handleMenuToggle}
-      >
+        }
+      )}
+    >
+      <button type="button" onClick={handleMenuToggle}>
         <IconMobileMenu className="w-6 h-4" />
       </button>
 

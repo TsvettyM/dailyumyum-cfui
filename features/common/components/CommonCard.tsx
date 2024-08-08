@@ -31,7 +31,7 @@ const CommonCard = ({ recipe, size }: IProps) => {
         {
           "px-6": size === "big",
           "px-3 pb-3": size === "small",
-          "!h-[225px] !w-[200px]": size === "small",
+          "h-[225px]": size === "small",
         }
       )}
     >

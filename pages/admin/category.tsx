@@ -118,16 +118,6 @@ const AdminCategoryPage = () => {
                 <div className="flex items-start space-x-4">
                   <Link
                     href={{
-                      pathname: "/admin/view/recipes",
-                      query: { id: item.id.toString() },
-                    }}
-                    className="flex items-center"
-                  >
-                    <IconView className="w-6 h-6" />
-                  </Link>
-
-                  <Link
-                    href={{
                       pathname: "/admin/edit/category",
                       query: { id: item.id.toString() },
                     }}

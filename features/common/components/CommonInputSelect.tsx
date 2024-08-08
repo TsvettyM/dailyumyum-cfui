@@ -9,6 +9,7 @@ interface IProps {
   error?: string;
   data: string[];
   label?: string;
+  required?: boolean;
   setItem: (item: string) => void;
   item: string;
   className?: string;
@@ -19,6 +20,7 @@ const CommonInputSelect = ({
   setItem,
   item,
   error,
+  required,
   label,
   className,
 }: IProps) => {
@@ -71,7 +73,7 @@ const CommonInputSelect = ({
         { [className || ""]: className }
       )}
     >
-      <CommonLabel htmlFor="" style="black" text={label} />
+      <CommonLabel htmlFor="" style="black" text={label} required={required} />
 
       <div className="relative flex items-center border text-black/40 border-black rounded-8 text-left w-full p-3 h-11 cursor-pointer">
         <button

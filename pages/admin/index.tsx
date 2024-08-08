@@ -15,24 +15,29 @@ const AdminPage = () => {
 
   function handleLogin(e: FormEvent) {
     e.preventDefault();
+
     axios
       .post("/api/login", { username, password })
-      .then(() => {
-        router.push("/admin/recipes");
+      .then((res) => {
+        if (res.data.user.isAdmin) {
+          router.push("/admin/recipes");
+        } else {
+          setError("You do not have admin privileges");
+        }
       })
-      .catch((err) => {
+      .catch(() => {
         setError("Invalid username or password");
       });
   }
 
   return (
-    <div className="admin__page bg-[#EFF9F5]">
+    <div className="admin__page bg-[#EFF9F5] h-full">
       <div className="container flex flex-col justify-center items-center py-10">
         <IconLogo className="h-11 w-[200px]" />
 
         <form
           onSubmit={handleLogin}
-          className="flex flex-col items-center w-[500px] shadow-[#748D93] shadow-bottom-right bg-[#DCECEA] p-6 rounded-8 mt-10"
+          className="flex flex-col items-center max-w-[500px] w-full shadow-[#748D93] shadow-bottom-right bg-[#DCECEA] p-6 rounded-8 mt-10"
         >
           <IconProfile className="w-12 h-12 mb-1" />
           <p className="mb-10 text-18 font-semibold">Please Log In</p>

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 const RecipesListView = () => {
   const [recipes, setRecipes] = useState<IRecipeList[]>([]);
+
   const [error, setError] = useState("");
   const router = useRouter();
 
@@ -43,11 +44,21 @@ const RecipesListView = () => {
   };
 
   const filteredGroupedRecipes = () => {
-    const { category } = router.query;
-    if (category && category !== "All") {
-      return groupByCategory().filter((group) => group.category === category);
+    const groupedRecipes = groupByCategory();
+
+    if (router.query.category && router.query.category !== "All") {
+      const filteredGroups = groupedRecipes.filter(
+        (group) => group.category === router.query.category
+      );
+
+      if (filteredGroups.length === 0) {
+        return [{ category: router.query.category as string, recipes: [] }];
+      }
+
+      return filteredGroups;
     }
-    return groupByCategory();
+
+    return groupedRecipes;
   };
 
   return (
@@ -55,15 +66,21 @@ const RecipesListView = () => {
       <div className="container flex flex-col items-center md:items-start justify-center md:justify-start">
         {error && <p className="text-red">{error}</p>}
 
-        {filteredGroupedRecipes().map((group) => (
-          <ul key={group.category}>
-            <h2 className="text-24 md:text-28 text-center sm:text-start text-gray-500 font-bold mb-10">
-              {group.category} ({group.recipes.length})
-            </h2>
-
-            <RecipesList recipes={group.recipes} />
-          </ul>
-        ))}
+        {filteredGroupedRecipes()
+          .sort((a, b) => a.category.localeCompare(b.category))
+          .map((group) => (
+            <ul key={group.category}>
+              <h2 className="text-24 md:text-28 text-center sm:text-start text-gray-500 font-bold mb-10">
+                {group.category || router.query.category} (
+                {group.recipes.length})
+              </h2>
+              {group.recipes.length > 0 ? (
+                <RecipesList recipes={group.recipes} />
+              ) : (
+                <p className="opacity-70">No recipes yet {":("}</p>
+              )}
+            </ul>
+          ))}
       </div>
     </section>
   );

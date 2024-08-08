@@ -85,7 +85,7 @@ const RecipeView = () => {
             </span>
           </h2>
 
-          <div className="ml-0 sm:ml-4">
+          <div className="ml-0 sm:ml-4 w-full">
             {productsArray.map((product, index) => (
               <p
                 key={index}

@@ -6,8 +6,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CommonDropdownButton from "./CommonDropDownButton";
 import CommonNavBarMobileMenu from "./CommonNavBarMobileMenu";
-import IRecipe from "@/features/homepage/interfaces/recipe.interface";
-import { IRecipeList } from "@/pages/admin/recipes";
 
 export interface ICategoryListItem {
   id: string;
@@ -26,18 +24,21 @@ export interface IRecipeListitem {
 const CommonHeader = () => {
   const router = useRouter();
   const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setSelectedCategory((router.query.category as string) || "All");
+  }, [router.query.category]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/category")
       .then((categoryRes) => {
-        const categoryList = (categoryRes.data as ICategoryListItem[]).map(
-          (item) => item.title
-        );
+        const categoryList = (categoryRes.data as ICategoryListItem[])
+          .sort((a, b) => a.title.localeCompare(b.title))
+          .map((item) => item.title);
         setCategories(categoryList);
-
-        return axios.get("http://localhost:3001/recipes");
       })
 
       .catch((err) => {
@@ -47,6 +48,7 @@ const CommonHeader = () => {
   }, []);
 
   function handleOnClick(arg: string) {
+    setSelectedCategory(arg);
     router.push({ pathname: "/recipes", query: { category: arg } });
   }
 
@@ -100,11 +102,12 @@ const CommonHeader = () => {
 
         {router.pathname === "/recipes" && categories.length > 0 ? (
           <CommonDropdownButton
-            className="relative ml-auto mr-5 bg-[#DCECEA] rounded-full"
+            className="relative ml-auto"
+            buttonClassName="w-[170px]"
             onClick={handleOnClick}
             title={
               <p className="flex text-14 s:text-16">
-                All
+                {selectedCategory}
                 <span className="flex items-center text-gray-500 ml-1">
                   ({categories.length})
                 </span>

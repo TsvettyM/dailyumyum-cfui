@@ -6,10 +6,17 @@ interface IProps {
   title: ReactNode;
   items: string[];
   className?: string;
+  buttonClassName?: string;
   onClick?: (arg: string) => void;
 }
 
-const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
+const CommonDropdownButton = ({
+  title,
+  items,
+  className,
+  buttonClassName,
+  onClick,
+}: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -25,17 +32,19 @@ const CommonDropdownButton = ({ title, items, className, onClick }: IProps) => {
 
   return (
     <div
-      className={classNames(
-        "common-dropDown-button relative bg-[#DCECEA] z-20",
-        {
-          [className ?? ""]: className,
-        }
-      )}
+      className={classNames("common-dropDown-button relative z-20", {
+        [className ?? ""]: className,
+      })}
     >
       <button
         type="button"
         onClick={toggleDropdown}
-        className="flex items-center justify-between bg-transparent text-black border-black border px-2 s:px-4 py-1 s:py-2 h-8 s:h-9 md:h-10 rounded-full"
+        className={classNames(
+          "flex items-center justify-between bg-[#DCECEA] text-black border-black border px-2 s:px-4 py-1 s:py-2 h-8 s:h-9 md:h-10 rounded-full",
+          {
+            [buttonClassName ?? ""]: buttonClassName,
+          }
+        )}
       >
         {title}
         <IconDropMenuArrow

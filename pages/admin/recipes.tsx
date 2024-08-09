@@ -94,7 +94,7 @@ const AdminRecipesPage = () => {
           </div>
         )}
 
-        <div className="outline-none rounded-8 overflow-x-auto w-full">
+        <div className="admin__tables outline-none rounded-8 overflow-x-auto w-full">
           <div className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 pt-5 sm:pt-10 pb-5 text-20 font-bold px-3 min-w-[1200px]">
             <p className="flex items-center">
               Id
@@ -157,7 +157,7 @@ const AdminRecipesPage = () => {
             <p>Action</p>
           </div>
 
-          <ul className="shadow-spread bg-white rounded-8 min-w-[1200px]">
+          <ul className="admin__tables--recipes shadow-spread bg-white rounded-8 min-w-[1200px]">
             {data.map((item) => (
               <div
                 key={item.id}

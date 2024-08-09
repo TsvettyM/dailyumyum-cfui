@@ -2,7 +2,7 @@ import HomepageRecipe from "./HomepageRecipe";
 
 const HomepageAbout = () => {
   return (
-    <section className="homepage__section--about flex overflow-hidden py-10 md:py-20 px-0 md:px-20">
+    <div className="homepage__about flex overflow-hidden py-10 md:py-20 px-0 md:px-20">
       <div className="container flex flex-col-reverse md:flex-row justify-center items-center relative">
         <HomepageRecipe isLatest={false} />
 
@@ -11,13 +11,13 @@ const HomepageAbout = () => {
             ABOUT DAILYUMYUM
           </h1>
 
-          <p className="text-14 md:text-16 text-black text-center md:text-start font-medium max-w-[340px]">
+          <p className="text-14 md:text-16 text-black mb-12 md:mb-0 text-center md:text-start font-medium max-w-[340px]">
             Our goal is to provide delicious and fun meals with detailed
             instruction on how to prepare them.
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

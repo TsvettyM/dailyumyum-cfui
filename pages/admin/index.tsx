@@ -31,13 +31,13 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="admin__page bg-[#EFF9F5] h-full">
+    <div className="admin__page--login bg-[#EFF9F5] h-full">
       <div className="container flex flex-col justify-center items-center py-10">
         <IconLogo className="h-11 w-[200px]" />
 
         <form
           onSubmit={handleLogin}
-          className="flex flex-col items-center max-w-[500px] w-full shadow-[#748D93] shadow-bottom-right bg-[#DCECEA] p-6 rounded-8 mt-10"
+          className="admin__form--login flex flex-col items-center max-w-[500px] w-full shadow-[#748D93] shadow-bottom-right bg-[#DCECEA] p-6 rounded-8 mt-10"
         >
           <IconProfile className="w-12 h-12 mb-1" />
           <p className="mb-10 text-18 font-semibold">Please Log In</p>

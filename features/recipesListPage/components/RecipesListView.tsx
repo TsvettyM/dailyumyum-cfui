@@ -62,7 +62,7 @@ const RecipesListView = () => {
   };
 
   return (
-    <section className="recipes__list-view py-5 h-full">
+    <div className="recipes__list-view py-5 h-full">
       <div className="container flex flex-col items-center md:items-start justify-center md:justify-start">
         {error && <p className="text-red">{error}</p>}
 
@@ -82,7 +82,7 @@ const RecipesListView = () => {
             </ul>
           ))}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -92,16 +92,17 @@ const CommonInputSelect = ({
                 <button
                   type="button"
                   onClick={() => handleRemove(selectedItem)}
-                  className="common__btn--select relative text-center text-black font-bold text-18"
+                  className="common__select--btn relative text-center text-black font-bold text-18"
                 >
                   <IconClose className="ml-2" />
                 </button>
               </span>
             ))}
+
             {selectedData.length > 2 ? (
               <button
                 type="button"
-                className="common__btn--select relative text-center text-black font-bold text-18"
+                className="common__select--btn relative text-center text-black font-bold text-18"
               >
                 + {selectedData.length - 2}
               </button>

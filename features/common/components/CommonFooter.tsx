@@ -15,7 +15,7 @@ const CommonFooter = () => {
   return (
     <footer className="flex bg-green pb-5 pt-8 mt-auto">
       <div className="container">
-        <div className="top flex flex-col md:flex-row md:justify-between">
+        <div className="top__side flex flex-col md:flex-row md:justify-between">
           <div className="apps flex flex-col justify-center items-center md:items-start">
             <IconLogoFooter />
 
@@ -96,7 +96,7 @@ const CommonFooter = () => {
           </div>
         </div>
 
-        <div className="bottom flex justify-center md:justify-start items-center md:items-start mt-10 md:mt-0 mb-auto">
+        <div className="bottom__side flex justify-center md:justify-start items-center md:items-start mt-10 md:mt-0 mb-auto">
           <p className="text-[12px] text-white/50">© 2024 Dailyumyum</p>
         </div>
       </div>

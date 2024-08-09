@@ -6,7 +6,7 @@ const CommonError = ({ error }: IProps) => {
   return (
     <button
       type="button"
-      className="absolute -bottom-6 left-0 text-14 text-left text-red"
+      className="common__error absolute -bottom-6 left-0 text-14 text-left text-red"
     >
       {error}
     </button>

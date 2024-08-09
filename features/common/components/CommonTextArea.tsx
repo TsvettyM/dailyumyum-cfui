@@ -25,7 +25,7 @@ const CommonTextArea = (props: IProps) => {
 
   return (
     <div
-      className={classNames("common__input flex flex-col group relative", {
+      className={classNames("common__textarea flex flex-col group relative", {
         [className || ""]: className,
       })}
     >
@@ -38,7 +38,7 @@ const CommonTextArea = (props: IProps) => {
 
       <textarea
         className={classNames(
-          "resize-none font-medium border rounded-8 p-2 bg-transparent outline-none",
+          "common__textarea resize-none font-medium border rounded-8 p-2 bg-transparent outline-none",
           {
             [getStyle()]: getStyle,
           }

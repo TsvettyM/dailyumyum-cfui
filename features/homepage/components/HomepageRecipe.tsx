@@ -42,12 +42,12 @@ const HomepageRecipe = ({ className, isLatest = true }: IHomepageRecipe) => {
       )}
     >
       <IconBG className="absolute -right-[152px] md:-right-[100px] lg:-right-[158px] -top-10 md:-top-14 w-[480px] md:w-[510px] lg:w-[540px]" />
-      <div className="mr-0 md:mr-16 lg:mr-0">
+      <div className="recipe__title mr-0 md:mr-16 lg:mr-0">
         <p className="text-center text-28 font-bold text-green mb-2 line-clamp-1 max-w-[250px]">
           {recipe?.title || "Loading..."}
         </p>
 
-        <div className="relative mb-8 mt-4 h-[160px] w-[180px] md:h-[170px] md:w-[200px] lg:h-[190px] lg:w-[220px]">
+        <div className="recipe__image relative mb-8 mt-4 h-[160px] w-[180px] md:h-[170px] md:w-[200px] lg:h-[190px] lg:w-[220px]">
           <Image
             src="/images/recipe-card-img.png"
             alt=""

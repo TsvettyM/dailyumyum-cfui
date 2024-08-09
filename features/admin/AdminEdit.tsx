@@ -4,6 +4,7 @@ import AdminFormCreateCategory from "./AdminFormCreateCategory";
 
 const EditForm = () => {
   const router = useRouter();
+  console.log(router);
 
   return (
     <div className="edit__recipe-page w-full max-w-[500px] px-5">

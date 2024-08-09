@@ -1,6 +1,4 @@
 import Link from "next/link";
-import IconLogo from "../icons/components/IconLogo";
-import IconLogOut from "../icons/components/IconLogOut";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IRecipeList } from "@/pages/admin/recipes";
@@ -9,7 +7,7 @@ import IconEdit from "../icons/components/IconEdit";
 import IconDelete from "../icons/components/IconDelete";
 import AdminNav from "@/pages/admin/sidenav";
 
-const AdminView = () => {
+const AdminRecipeView = () => {
   const [data, setData] = useState<IRecipeList>();
   const router = useRouter();
 
@@ -43,7 +41,7 @@ const AdminView = () => {
     <div className="admin__view-page flex h-full w-full bg-[#EFF9F5]">
       <AdminNav />
 
-      <div className="flex items-center justify-center mx-10 md:mx-20 w-full mt-14 md:mt-20">
+      <div className="admin__recipe--view flex items-center justify-center mx-10 md:mx-20 w-full mt-14 md:mt-20">
         <form className="view__recipe flex flex-col items-start bottom-10 shadow-[#889FA5] shadow-spread py-8 px-10 rounded-10 w-full h-full">
           <h1 className="text-32 font-semibold text-start mb-4">View Recipe</h1>
 
@@ -100,4 +98,4 @@ const AdminView = () => {
   );
 };
 
-export default AdminView;
+export default AdminRecipeView;

@@ -7,7 +7,7 @@ import IconEdit from "../icons/components/IconEdit";
 import IconDelete from "../icons/components/IconDelete";
 import AdminNav from "@/pages/admin/sidenav";
 
-const AdminRecipeView = () => {
+const AdminView = () => {
   const [data, setData] = useState<IRecipeList>();
   const router = useRouter();
 
@@ -98,4 +98,4 @@ const AdminRecipeView = () => {
   );
 };
 
-export default AdminRecipeView;
+export default AdminView;

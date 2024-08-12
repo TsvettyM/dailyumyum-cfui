@@ -67,6 +67,7 @@ const AdminCategoryPage = () => {
             <p className="flex items-center">
               Id
               <button
+                type="button"
                 onClick={() => handleSort("id")}
                 className="flex items-center ml-1.5"
               >
@@ -85,6 +86,7 @@ const AdminCategoryPage = () => {
             <p className="flex items-center">
               Name
               <button
+                type="button"
                 onClick={() => handleSort("title")}
                 className="flex items-center ml-1.5"
               >
@@ -118,6 +120,16 @@ const AdminCategoryPage = () => {
                 <div className="flex items-start space-x-4">
                   <Link
                     href={{
+                      pathname: "/admin/view/category",
+                      query: { id: item.id.toString() },
+                    }}
+                    className="flex items-center"
+                  >
+                    <IconView className="w-6 h-6" />
+                  </Link>
+
+                  <Link
+                    href={{
                       pathname: "/admin/edit/category",
                       query: { id: item.id.toString() },
                     }}
@@ -125,6 +137,7 @@ const AdminCategoryPage = () => {
                   >
                     <IconEdit className="mx-2 w-6 h-6" />
                   </Link>
+
                   <button type="button" onClick={() => handleDelete(item.id)}>
                     <IconDelete className="w-6 h-6" />
                   </button>

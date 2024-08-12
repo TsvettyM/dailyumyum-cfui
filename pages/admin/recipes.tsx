@@ -99,6 +99,7 @@ const AdminRecipesPage = () => {
             <p className="flex items-center">
               Id
               <button
+                type="button"
                 onClick={() => handleSort("id")}
                 className="flex items-center ml-1.5"
               >
@@ -117,6 +118,7 @@ const AdminRecipesPage = () => {
             <p className="flex items-center">
               Name
               <button
+                type="button"
                 onClick={() => handleSort("title")}
                 className="flex items-center ml-1.5"
               >
@@ -135,6 +137,7 @@ const AdminRecipesPage = () => {
             <p className="flex items-center">
               Category
               <button
+                type="button"
                 onClick={() => handleSort("category")}
                 className="flex items-center ml-1.5"
               >
@@ -150,7 +153,24 @@ const AdminRecipesPage = () => {
               </button>
             </p>
 
-            <p>Products</p>
+            <p className="flex items-center">
+              Products
+              <button
+                type="button"
+                onClick={() => handleSort("products")}
+                className="flex items-center ml-1.5"
+              >
+                <IconSort
+                  className={`w-6 h-6 transition-transform ${
+                    isSort.key === "category" && isSort.direction === "asc"
+                      ? "rotate-180 stroke-black"
+                      : isSort.key === "category" && isSort.direction === "desc"
+                      ? "rotate-0 stroke-green"
+                      : "stroke-black"
+                  }`}
+                />
+              </button>
+            </p>
 
             <p>Description</p>
 

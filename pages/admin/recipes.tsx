@@ -9,6 +9,7 @@ import IconClose from "@/features/icons/components/IconClose";
 import IconView from "@/features/icons/components/IconView";
 import IconSort from "@/features/icons/components/IconSort";
 import AdminNav from "./sidenav";
+import Head from "next/head";
 
 export interface IRecipeList {
   id: number;
@@ -70,156 +71,166 @@ const AdminRecipesPage = () => {
   }
 
   return (
-    <div className="admin__recipes-page flex h-full bg-[#EFF9F5]">
-      <AdminNav />
+    <>
+      <Head>
+        <title>
+          Admin {router.asPath.includes("recipes") ? "Recipes" : "Category"}
+        </title>
+      </Head>
 
-      <div className="mx-5 sm:mx-10 md:mx-20 w-full mt-10 overflow-x-auto">
-        <AdminHeader title="Recipes" />
+      <div className="admin__recipes-page flex h-full bg-[#EFF9F5]">
+        <AdminNav />
 
-        {showMessage && (
-          <div className="success__message fixed right-10 bottom-10 flex justify-center items-center w-[400px] bg-[#DCECEA] border-t-5 border-[#748D93] rounded-b-8 px-2 py-2 shadow-bottom">
-            <div className="flex justify-center items-center w-full">
-              <p className="text-14 text-[#748D93]">
-                <span className="font-semibold">Congrats!</span>
-                {showMessage}
+        <div className="mx-5 sm:mx-10 md:mx-20 w-full mt-10 overflow-x-auto">
+          <AdminHeader title="Recipes" />
+
+          {showMessage && (
+            <div className="success__message fixed right-10 bottom-10 flex justify-center items-center w-[400px] bg-[#DCECEA] border-t-5 border-[#748D93] rounded-b-8 px-2 py-2 shadow-bottom">
+              <div className="flex justify-center items-center w-full">
+                <p className="text-14 text-[#748D93]">
+                  <span className="font-semibold">Congrats!</span>
+                  {showMessage}
+                  <button
+                    type="button"
+                    onClick={() => setShowMessage("")}
+                    className="ml-3"
+                  >
+                    <IconClose className="text-center ml-auto" />
+                  </button>
+                </p>
+              </div>
+            </div>
+          )}
+
+          <div className="admin__tables outline-none rounded-8 overflow-x-auto w-full">
+            <div className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 pt-5 sm:pt-10 pb-5 text-20 font-bold px-3 min-w-[1200px]">
+              <p className="flex items-center">
+                Id
                 <button
                   type="button"
-                  onClick={() => setShowMessage("")}
-                  className="ml-3"
+                  onClick={() => handleSort("id")}
+                  className="flex items-center ml-1.5"
                 >
-                  <IconClose className="text-center ml-auto" />
+                  <IconSort
+                    className={`w-6 h-6 transition-transform ${
+                      isSort.key === "id" && isSort.direction === "asc"
+                        ? "rotate-180 stroke-black"
+                        : isSort.key === "id" && isSort.direction === "desc"
+                        ? "rotate-0 stroke-green"
+                        : "stroke-black"
+                    }`}
+                  />
                 </button>
               </p>
+
+              <p className="flex items-center">
+                Name
+                <button
+                  type="button"
+                  onClick={() => handleSort("title")}
+                  className="flex items-center ml-1.5"
+                >
+                  <IconSort
+                    className={`w-6 h-6 transition-transform ${
+                      isSort.key === "title" && isSort.direction === "asc"
+                        ? "rotate-180 stroke-black"
+                        : isSort.key === "title" && isSort.direction === "desc"
+                        ? "rotate-0 stroke-green"
+                        : "stroke-black"
+                    }`}
+                  />
+                </button>
+              </p>
+
+              <p className="flex items-center">
+                Category
+                <button
+                  type="button"
+                  onClick={() => handleSort("category")}
+                  className="flex items-center ml-1.5"
+                >
+                  <IconSort
+                    className={`w-6 h-6 transition-transform ${
+                      isSort.key === "category" && isSort.direction === "asc"
+                        ? "rotate-180 stroke-black"
+                        : isSort.key === "category" &&
+                          isSort.direction === "desc"
+                        ? "rotate-0 stroke-green"
+                        : "stroke-black"
+                    }`}
+                  />
+                </button>
+              </p>
+
+              <p className="flex items-center">
+                Products
+                <button
+                  type="button"
+                  onClick={() => handleSort("products")}
+                  className="flex items-center ml-1.5"
+                >
+                  <IconSort
+                    className={`w-6 h-6 transition-transform ${
+                      isSort.key === "category" && isSort.direction === "asc"
+                        ? "rotate-180 stroke-black"
+                        : isSort.key === "category" &&
+                          isSort.direction === "desc"
+                        ? "rotate-0 stroke-green"
+                        : "stroke-black"
+                    }`}
+                  />
+                </button>
+              </p>
+
+              <p>Description</p>
+
+              <p>Action</p>
             </div>
-          </div>
-        )}
 
-        <div className="admin__tables outline-none rounded-8 overflow-x-auto w-full">
-          <div className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 pt-5 sm:pt-10 pb-5 text-20 font-bold px-3 min-w-[1200px]">
-            <p className="flex items-center">
-              Id
-              <button
-                type="button"
-                onClick={() => handleSort("id")}
-                className="flex items-center ml-1.5"
-              >
-                <IconSort
-                  className={`w-6 h-6 transition-transform ${
-                    isSort.key === "id" && isSort.direction === "asc"
-                      ? "rotate-180 stroke-black"
-                      : isSort.key === "id" && isSort.direction === "desc"
-                      ? "rotate-0 stroke-green"
-                      : "stroke-black"
-                  }`}
-                />
-              </button>
-            </p>
+            <ul className="admin__tables--recipes shadow-spread bg-white rounded-8 min-w-[1200px]">
+              {data.map((item) => (
+                <div
+                  key={item.id}
+                  className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 w-full shadow-bottom last-of-type:rounded-br-8 last-of-type:rounded-bl-8 p-3"
+                >
+                  <p>{item.id}</p>
+                  <p className="line-clamp-1">{item.title}</p>
+                  <p className="line-clamp-1">{item.category}</p>
+                  <p className="line-clamp-1">{item.products}</p>
+                  <p className="line-clamp-1">{item.description}</p>
 
-            <p className="flex items-center">
-              Name
-              <button
-                type="button"
-                onClick={() => handleSort("title")}
-                className="flex items-center ml-1.5"
-              >
-                <IconSort
-                  className={`w-6 h-6 transition-transform ${
-                    isSort.key === "title" && isSort.direction === "asc"
-                      ? "rotate-180 stroke-black"
-                      : isSort.key === "title" && isSort.direction === "desc"
-                      ? "rotate-0 stroke-green"
-                      : "stroke-black"
-                  }`}
-                />
-              </button>
-            </p>
+                  <div className="flex items-start space-x-4">
+                    <Link
+                      href={{
+                        pathname: "/admin/view/recipes",
+                        query: { id: item.id.toString() },
+                      }}
+                      className="flex items-center"
+                    >
+                      <IconView className="w-6 h-6" />
+                    </Link>
 
-            <p className="flex items-center">
-              Category
-              <button
-                type="button"
-                onClick={() => handleSort("category")}
-                className="flex items-center ml-1.5"
-              >
-                <IconSort
-                  className={`w-6 h-6 transition-transform ${
-                    isSort.key === "category" && isSort.direction === "asc"
-                      ? "rotate-180 stroke-black"
-                      : isSort.key === "category" && isSort.direction === "desc"
-                      ? "rotate-0 stroke-green"
-                      : "stroke-black"
-                  }`}
-                />
-              </button>
-            </p>
+                    <Link
+                      href={{
+                        pathname: "/admin/edit/recipes",
+                        query: { id: item.id.toString() },
+                      }}
+                      className="flex items-center"
+                    >
+                      <IconEdit className="mx-2 w-6 h-6" />
+                    </Link>
 
-            <p className="flex items-center">
-              Products
-              <button
-                type="button"
-                onClick={() => handleSort("products")}
-                className="flex items-center ml-1.5"
-              >
-                <IconSort
-                  className={`w-6 h-6 transition-transform ${
-                    isSort.key === "category" && isSort.direction === "asc"
-                      ? "rotate-180 stroke-black"
-                      : isSort.key === "category" && isSort.direction === "desc"
-                      ? "rotate-0 stroke-green"
-                      : "stroke-black"
-                  }`}
-                />
-              </button>
-            </p>
-
-            <p>Description</p>
-
-            <p>Action</p>
-          </div>
-
-          <ul className="admin__tables--recipes shadow-spread bg-white rounded-8 min-w-[1200px]">
-            {data.map((item) => (
-              <div
-                key={item.id}
-                className="grid grid-cols-[1fr_1fr_150px_1fr_1fr_150px] gap-5 w-full shadow-bottom last-of-type:rounded-br-8 last-of-type:rounded-bl-8 p-3"
-              >
-                <p>{item.id}</p>
-                <p className="line-clamp-1">{item.title}</p>
-                <p className="line-clamp-1">{item.category}</p>
-                <p className="line-clamp-1">{item.products}</p>
-                <p className="line-clamp-1">{item.description}</p>
-
-                <div className="flex items-start space-x-4">
-                  <Link
-                    href={{
-                      pathname: "/admin/view/recipes",
-                      query: { id: item.id.toString() },
-                    }}
-                    className="flex items-center"
-                  >
-                    <IconView className="w-6 h-6" />
-                  </Link>
-
-                  <Link
-                    href={{
-                      pathname: "/admin/edit/recipes",
-                      query: { id: item.id.toString() },
-                    }}
-                    className="flex items-center"
-                  >
-                    <IconEdit className="mx-2 w-6 h-6" />
-                  </Link>
-
-                  <button type="button" onClick={() => handleDelete(item.id)}>
-                    <IconDelete className="w-6 h-6" />
-                  </button>
+                    <button type="button" onClick={() => handleDelete(item.id)}>
+                      <IconDelete className="w-6 h-6" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </ul>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

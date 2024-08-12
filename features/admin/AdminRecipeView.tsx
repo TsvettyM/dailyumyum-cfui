@@ -7,7 +7,7 @@ import IconEdit from "../icons/components/IconEdit";
 import IconDelete from "../icons/components/IconDelete";
 import AdminNav from "@/pages/admin/sidenav";
 
-const AdminView = () => {
+const AdminRecipeView = () => {
   const [data, setData] = useState<IRecipeList>();
   const router = useRouter();
 
@@ -49,23 +49,27 @@ const AdminView = () => {
             <div className="flex items-start justify-start w-full">
               <div className="relative flex flex-col w-full">
                 <p className="text-18 text-black font-bold">
-                  Id: <span className="text-16 font-medium">{data.id}</span>
+                  Id:<span className="ml-1 text-16 font-medium">{data.id}</span>
                 </p>
                 <p className="text-18 text-black font-bold">
                   Name:
-                  <span className="text-16 font-medium">{data.title}</span>
+                  <span className="ml-1 text-16 font-medium">{data.title}</span>
                 </p>
                 <p className="text-18 text-black font-bold">
                   Category:
-                  <span className="text-16 font-medium">{data.category}</span>
+                  <span className="ml-1 text-16 font-medium">
+                    {data.category}
+                  </span>
                 </p>
                 <p className="text-18 text-black font-bold">
                   Products:
-                  <span className="text-16 font-medium">{data.products}</span>
+                  <span className="ml-1 text-16 font-medium">
+                    {data.products}
+                  </span>
                 </p>
                 <p className="text-18 text-black font-bold">
                   Description:
-                  <span className="text-16 font-medium">
+                  <span className="ml-1 text-16 font-medium">
                     {data.description}
                   </span>
                 </p>
@@ -98,4 +102,4 @@ const AdminView = () => {
   );
 };
 
-export default AdminView;
+export default AdminRecipeView;

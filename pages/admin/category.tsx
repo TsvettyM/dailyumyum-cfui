@@ -9,7 +9,7 @@ import IconView from "@/features/icons/components/IconView";
 import IconSort from "@/features/icons/components/IconSort";
 import AdminNav from "./sidenav";
 
-interface ICategory {
+export interface ICategory {
   id: number;
   title: string;
   description: string;

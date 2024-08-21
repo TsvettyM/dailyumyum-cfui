@@ -93,14 +93,6 @@ const CommonHeader = () => {
         </Link>
       </nav>
 
-      <CommonButton
-        type="button"
-        href="/"
-        title="Explore"
-        style="green"
-        className="hidden w-[115px] h-8"
-      />
-
       {router.pathname === "/recipes" && categories.length > 0 ? (
         <CommonDropdownButton
           className="relative ml-auto mr-8"

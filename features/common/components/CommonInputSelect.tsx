@@ -102,7 +102,7 @@ const CommonInputSelect = ({
             {selectedData.length > 2 ? (
               <button
                 type="button"
-                className="common__select--btn relative text-center text-black font-bold text-18"
+                className="common__select--btn relative text-center text-black font-bold text-18 ml-3"
               >
                 + {selectedData.length - 2}
               </button>

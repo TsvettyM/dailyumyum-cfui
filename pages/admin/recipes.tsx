@@ -195,7 +195,9 @@ const AdminRecipesPage = () => {
                 >
                   <p>{item.id}</p>
                   <p className="line-clamp-1">{item.title}</p>
-                  <p className="line-clamp-1">{item.category}</p>
+                  <p className="line-clamp-1">
+                    {item.category.split(",").join(", ")}
+                  </p>
                   <p className="line-clamp-1">{item.products}</p>
                   <p className="line-clamp-1">{item.description}</p>
 

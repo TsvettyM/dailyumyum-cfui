@@ -54,7 +54,9 @@ const CommonHeader = () => {
 
   return (
     <header className="container flex items-center justify-center py-4">
-      <IconLogo className="mr-auto md:mr-8 h-11 w-[150px] s:w-[200px]" />
+      <Link href="/">
+        <IconLogo className="mr-auto md:mr-8 h-11 w-[150px] s:w-[200px]" />
+      </Link>
 
       <nav className="hidden gap-8 font-medium mr-auto md:flex">
         <Link
